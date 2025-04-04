@@ -1,1 +1,10 @@
-asd
+Clases: 
+Cliente
+Dispositivo
+Problemas o funciones del programa:
+Agregar cliente sin necesidad de agregarlo con dispositivo()
+Agregar cliente con su disposito();
+Borrar Cliente y disposito();
+filtro por cliente();
+filtrar por estado();//para ver el estado de cuales son los que tengo pendientes;
+filtrar por fecha(); //cliente como dispositivo;
