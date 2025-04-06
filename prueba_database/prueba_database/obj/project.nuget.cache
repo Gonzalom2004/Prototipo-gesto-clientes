@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9VqejDYfvOU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jerem\\OneDrive\\Escritorio\\pruab proyecto\\formss\\prueba_database\\prueba_database\\prueba_database.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jerem\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.119\\stub.system.data.sqlite.core.netstandard.1.0.119.nupkg.sha512",
+    "C:\\Users\\jerem\\.nuget\\packages\\system.data.sqlite.core\\1.0.119\\system.data.sqlite.core.1.0.119.nupkg.sha512"
+  ],
+  "logs": []
+}
