@@ -1,0 +1,10 @@
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\Gestor_De_Clientes.exe.config
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\Gestor_De_Clientes.exe
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\Gestor_De_Clientes.pdb
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.csproj.AssemblyReference.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.Form1.resources
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.Properties.Resources.resources
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.csproj.GenerateResource.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.csproj.CoreCompileInputs.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.exe
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.pdb
