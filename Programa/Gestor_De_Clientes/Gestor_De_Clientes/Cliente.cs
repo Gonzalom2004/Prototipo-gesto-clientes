@@ -15,13 +15,13 @@ namespace Gestor_De_Clientes
         #region "Atributos" 
         private string _nombre;
         private string _apellido;
-        private string _id;
+        private string _id; //Que lo genera la base de datos. 
         private string _telefono;
         #endregion
         //Las propiedades las ponemos en private para serguir la regla de encapsulamiento 
 
         #region "Propiedades"
-        //Pensar la necesidad de poner algun condicional para la asignación de valoress
+        //Pensar la necesidad de poner algun condicional para la asignación de valores
         public string Nombre
         {
             get { return _nombre; }
