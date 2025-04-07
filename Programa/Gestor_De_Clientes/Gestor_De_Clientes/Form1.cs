@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+
+//agregar using de paquetes para usar json
 namespace Gestor_De_Clientes
 {
     public partial class Form1: Form
@@ -23,7 +25,9 @@ namespace Gestor_De_Clientes
             
         }
 
-
+        //Descagar paquetes nuget para usar este codigo estos paquetes: 
+        //Microsoft.Extensions.Configuration
+        //package Microsoft.Extensions.Configuration.Json
         // Construye el objeto de configuración
         var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory()) // donde está appsettings.json
@@ -41,6 +45,7 @@ namespace Gestor_De_Clientes
 //    "conexion": "Data Source= C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\Programa\\Base_De_Datos\\Gestor_De_Cliente.db; Version=3;"
 //   }
 //}
+
 
 
 
