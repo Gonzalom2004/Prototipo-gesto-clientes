@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SQLite;
 namespace Gestor_De_Clientes
 {
     public partial class Form1: Form
@@ -16,7 +16,13 @@ namespace Gestor_De_Clientes
         public Form1()
         {
             InitializeComponent();
+            conectarBB();
         }
+        private void conectarBB()
+        {
+            
+        }
+<<<<<<< HEAD
 
         // Construye el objeto de configuración
         var builder = new ConfigurationBuilder()
@@ -37,6 +43,8 @@ namespace Gestor_De_Clientes
 //}
 
 
+=======
+>>>>>>> 0833922fee4b1ed51b226f7ce6b76b73470008b6
         private void label1_Click(object sender, EventArgs e)
         {
 
