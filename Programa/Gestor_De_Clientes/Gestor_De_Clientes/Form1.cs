@@ -22,7 +22,7 @@ namespace Gestor_De_Clientes
         {
             
         }
-<<<<<<< HEAD
+
 
         // Construye el objeto de configuración
         var builder = new ConfigurationBuilder()
@@ -43,8 +43,7 @@ namespace Gestor_De_Clientes
 //}
 
 
-=======
->>>>>>> 0833922fee4b1ed51b226f7ce6b76b73470008b6
+
         private void label1_Click(object sender, EventArgs e)
         {
 
