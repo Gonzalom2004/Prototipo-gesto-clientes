@@ -20,14 +20,7 @@ namespace Gestor_De_Clientes
         }
         private void conectarBB()
         {
-            string dbRelativePath = Path.Combine("..", "..", "Base_De_Datos", "Gestor_De_Clientes.db");
-            string dbAbsolutePath = Path.GetFullPath(dbRelativePath);
-            string connectionString = $"Data Source={dbAbsolutePath};Version=3;";
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            {
-                conn.Open();
-                MessageBox.Show("se abrio"); 
-            }
+            
         }
         private void label1_Click(object sender, EventArgs e)
         {
