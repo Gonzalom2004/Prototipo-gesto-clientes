@@ -33,7 +33,7 @@ namespace Gestor_De_Clientes
             get { return _apellido; }
             set { _apellido = value; }
         }
-        public string Id
+        public int Id
         {
             get { return _id; }
             set { _id = value; }
@@ -43,10 +43,10 @@ namespace Gestor_De_Clientes
             get { return _telefono; }
             set { _telefono = value; }
         }
-        public string Fechaingreso
+        public string FechaAlta
         {
-            get { return _fechaingreso; }
-            set { _fechaingreso = value; }
+            get { return _fechaAlta; }
+            set { _fechaAlta = value; }
         }
 
 
@@ -57,10 +57,10 @@ namespace Gestor_De_Clientes
         {
             this._nombre = _nombre;
             this._apellido = _apellido;
-            this._id = null;
+            this._id = 0;//mirar esto deberia ser null
             this._telefono = _telefono; 
         }
-        public Cliente(string _nombre, string _apellido, string _id, string _telefono)
+        public Cliente(string _nombre, string _apellido, int _id, string _telefono)
         {
             this._nombre = _nombre;
             this._apellido = _apellido;
