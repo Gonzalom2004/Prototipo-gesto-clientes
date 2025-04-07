@@ -21,3 +21,27 @@ C:\Users\jerem\OneDrive\Escritorio\pruab proyecto\formss\prueba_database\prueba_
 C:\Users\jerem\OneDrive\Escritorio\pruab proyecto\formss\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.pdb
 C:\Users\jerem\OneDrive\Escritorio\pruab proyecto\formss\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.genruntimeconfig.cache
 C:\Users\jerem\OneDrive\Escritorio\pruab proyecto\formss\prueba_database\prueba_database\obj\Debug\net8.0-windows\ref\prueba_database.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\prueba_database.exe
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\prueba_database.deps.json
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\prueba_database.runtimeconfig.json
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\prueba_database.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\prueba_database.pdb
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\System.Data.SQLite.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.csproj.AssemblyReference.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.Form1.resources
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.csproj.GenerateResource.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.AssemblyInfoInputs.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.AssemblyInfo.cs
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.csproj.CoreCompileInputs.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.sourcelink.json
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_d.075F8773.Up2Date
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\refint\prueba_database.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.pdb
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.genruntimeconfig.cache
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\ref\prueba_database.dll

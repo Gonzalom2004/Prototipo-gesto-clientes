@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jerem\\OneDrive\\Escritorio\\pruab proyecto\\formss\\prueba_database\\prueba_database\\prueba_database.csproj": {}
+    "C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\prueba_database\\prueba_database\\prueba_database.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jerem\\OneDrive\\Escritorio\\pruab proyecto\\formss\\prueba_database\\prueba_database\\prueba_database.csproj": {
+    "C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\prueba_database\\prueba_database\\prueba_database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jerem\\OneDrive\\Escritorio\\pruab proyecto\\formss\\prueba_database\\prueba_database\\prueba_database.csproj",
+        "projectUniqueName": "C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\prueba_database\\prueba_database\\prueba_database.csproj",
         "projectName": "prueba_database",
-        "projectPath": "C:\\Users\\jerem\\OneDrive\\Escritorio\\pruab proyecto\\formss\\prueba_database\\prueba_database\\prueba_database.csproj",
-        "packagesPath": "C:\\Users\\jerem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jerem\\OneDrive\\Escritorio\\pruab proyecto\\formss\\prueba_database\\prueba_database\\obj\\",
+        "projectPath": "C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\prueba_database\\prueba_database\\prueba_database.csproj",
+        "packagesPath": "C:\\Users\\04gon\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\prueba_database\\prueba_database\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jerem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\04gon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -74,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

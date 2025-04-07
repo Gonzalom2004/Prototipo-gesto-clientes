@@ -12,7 +12,7 @@ namespace prueba_database
         }
         private void CargarDatos()
         {                                               //esto lo tenes que cambiar por donde tenes guardada la database
-            string connectionString = "Data Source=C:\\Users\\jerem\\OneDrive\\Escritorio\\pruab proyecto\\formss\\prueba_database\\prueba_proyecto.db;Version=3;";
+            string connectionString = "Data Source=C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\prueba_database\\prueba_proyecto.db;Version=3;";
 
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {

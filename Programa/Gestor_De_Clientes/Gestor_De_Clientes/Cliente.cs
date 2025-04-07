@@ -13,10 +13,11 @@ namespace Gestor_De_Clientes
         //responsabilidad. 
 
         #region "Atributos" 
+        private int _id; //Que lo genera la base de datos.
         private string _nombre;
         private string _apellido;
-        private string _id; //Que lo genera la base de datos. 
         private string _telefono;
+        private string _fechaAlta;
         #endregion
         //Las propiedades las ponemos en private para serguir la regla de encapsulamiento 
 
@@ -42,22 +43,37 @@ namespace Gestor_De_Clientes
             get { return _telefono; }
             set { _telefono = value; }
         }
+        public string Fechaingreso
+        {
+            get { return _fechaingreso; }
+            set { _fechaingreso = value; }
+        }
 
 
         #endregion
 
         #region "Constructor"
-        public Cliente (string _nombre, string _apellido, string _id, string _telefono)
+        public Cliente (string _nombre, string _apellido, string _telefono)
         {
             this._nombre = _nombre;
             this._apellido = _apellido;
-            this._id = _id;
+            this._id = null;
             this._telefono = _telefono; 
+        }
+        public Cliente(string _nombre, string _apellido, string _id, string _telefono)
+        {
+            this._nombre = _nombre;
+            this._apellido = _apellido;
+            this._id = _id ;
+            this._telefono = _telefono;
         }
         #endregion
 
         //Faltan agregar los metodos 
         #region "Metodos"
+        //
+
+
         #endregion
     }
 }

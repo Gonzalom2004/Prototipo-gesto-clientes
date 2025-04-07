@@ -9,7 +9,8 @@ namespace Gestor_De_Clientes
     class Dispositivo
     {
         #region "Atributos"
-        private string _tipo; //Aca la idea es que sean tres tipos: TELEFONO, TABLET, VARIOS
+        private int _id; //Que lo genera la base de datos.
+        private string _tipo; //Aca la idea es que sean tres tipos: TELEFONO, TABLET, VARIOS cuando le das a varios se aber una texbox donde agregar el tipo que sea
         private string _marca;
         private string _falla;//Para ingresar la descripcion sencilla/corta como: pantalla rota, cambio de bateria 
         private string _estado;//Aca la idea es que sean 2 opciones: A REPARAR, REPARADO
@@ -61,11 +62,13 @@ namespace Gestor_De_Clientes
             this._estado = _estado;
             this._comentario = _comentario;
             this._cliente = _cliente; 
+            
         }
         #endregion
 
         //Faltar agregar los metodos
         #region "Metodos"
+        //Saber fecha de modificacion de estado();
         #endregion
 
 
