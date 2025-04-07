@@ -45,3 +45,16 @@ C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prue
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.pdb
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\prueba_database.genruntimeconfig.cache
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\obj\Debug\net8.0-windows\ref\prueba_database.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\System.Text.Json.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\prueba_database\prueba_database\bin\Debug\net8.0-windows\appsettings.json

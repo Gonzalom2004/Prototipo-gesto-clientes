@@ -1,6 +1,10 @@
 using System;
+using System.Configuration;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+
 namespace prueba_database
 {
     public partial class Form1 : Form
@@ -11,10 +15,22 @@ namespace prueba_database
             CargarDatos();
         }
         private void CargarDatos()
-        {                                               //esto lo tenes que cambiar por donde tenes guardada la database
-            string connectionString = "Data Source=C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\prueba_database\\prueba_proyecto.db;Version=3;";
+        {
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            // Construye el objeto de configuración
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory()) // donde está appsettings.json
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            IConfiguration config = builder.Build();
+
+            // Obtener la cadena de conexión desde el JSON
+            string conexion = config.GetConnectionString("conexion");
+
+      
+
+
+            using (SQLiteConnection conn = new SQLiteConnection(conexion))
             {
                 conn.Open();
                 //esto de aca abajo es porque chatgpt decia que un error puede ser que 
@@ -26,8 +42,8 @@ namespace prueba_database
 
                 string query = @"
                     SELECT c.nombre, c.telefono, d.tipo, d.marca, d.falla, d.estado
-                    FROM cliente c
-                    JOIN dispositivo d ON c.id = d.id_cliente;
+                    FROM Cliente c
+                    JOIN Dispositivo d ON c.id = d.id_cliente;
                      ";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
