@@ -30,11 +30,11 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,19 @@
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
             this.agregarToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.agregarToolStripMenuItem.Text = "Agregar";
+            // 
+            // clienteToolStripMenuItem
+            // 
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Text = "Cliente";
+            this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
+            // 
+            // dispositivoToolStripMenuItem
+            // 
+            this.dispositivoToolStripMenuItem.Name = "dispositivoToolStripMenuItem";
+            this.dispositivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dispositivoToolStripMenuItem.Text = "Dispositivo";
             // 
             // buscarToolStripMenuItem
             // 
@@ -81,18 +94,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(208, 303);
             this.listBox1.TabIndex = 2;
-            // 
-            // clienteToolStripMenuItem
-            // 
-            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clienteToolStripMenuItem.Text = "Cliente";
-            // 
-            // dispositivoToolStripMenuItem
-            // 
-            this.dispositivoToolStripMenuItem.Name = "dispositivoToolStripMenuItem";
-            this.dispositivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.dispositivoToolStripMenuItem.Text = "Dispositivo";
             // 
             // Form1
             // 

@@ -57,3 +57,4 @@ C:\Users\jerem\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Cl
 C:\Users\jerem\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\System.Text.Json.xml
 C:\Users\jerem\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\jerem\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\System.ValueTuple.xml
+C:\Users\jerem\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.Form2.resources
