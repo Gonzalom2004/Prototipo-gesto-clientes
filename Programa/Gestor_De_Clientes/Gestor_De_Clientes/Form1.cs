@@ -9,7 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
-
+using Microsoft.Extensions.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 //agregar using de paquetes para usar json
 namespace Gestor_De_Clientes
 {
@@ -22,29 +23,39 @@ namespace Gestor_De_Clientes
         }
         private void conectarBB()
         {
-            
+           
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory()) // donde está appsettings.json
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            IConfiguration config = builder.Build();
+
+            // Obtener la cadena de conexión desde el JSON
+            string conexion = config.GetConnectionString("conexion");
+
+
+            using (SQLiteConnection conn = new SQLiteConnection(conexion))
+            {
+                conn.Open();
+
+                string consulta = @" 
+                    SELECT c.nombre, c.id, d.tipo
+                    FROM Cliente c JOIN Dispositivo d ON c.id = d.id_cliente;
+                    
+                ";
+                using (SQLiteCommand cmd = new SQLiteCommand(consulta, conn))
+                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                {
+                   //aca cuando empezemos a agregar clientes y dispositivos
+                   //hay que poner para que se muestren las reparaciones pendientes
+                   //tomando de referencia la base de datos de prueba y el winforms de prueba
+                }
+
+            }
+             
         }
 
-        //Descagar paquetes nuget para usar este codigo estos paquetes: 
-        //Microsoft.Extensions.Configuration
-        //package Microsoft.Extensions.Configuration.Json
-        // Construye el objeto de configuración
-        var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory()) // donde está appsettings.json
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
-        IConfiguration config = builder.Build();
-
-        // Obtener la cadena de conexión desde el JSON
-        string conexion = config.GetConnectionString("conexion");
-
-//       Asi se tiene que ver appsettings.json {
-  
-//  "ConnectionStrings": {
-  
-//    "conexion": "Data Source= C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\Programa\\Base_De_Datos\\Gestor_De_Cliente.db; Version=3;"
-//   }
-//}
 
 
 
@@ -52,6 +63,12 @@ namespace Gestor_De_Clientes
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
         }
     }
 }
