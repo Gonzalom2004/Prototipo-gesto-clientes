@@ -35,7 +35,6 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,14 +61,14 @@
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // dispositivoToolStripMenuItem
             // 
             this.dispositivoToolStripMenuItem.Name = "dispositivoToolStripMenuItem";
-            this.dispositivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dispositivoToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.dispositivoToolStripMenuItem.Text = "Dispositivo";
             // 
             // buscarToolStripMenuItem
@@ -96,22 +95,11 @@
             this.listBox1.Size = new System.Drawing.Size(208, 303);
             this.listBox1.TabIndex = 2;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(453, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 435);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -134,7 +122,6 @@
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispositivoToolStripMenuItem;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

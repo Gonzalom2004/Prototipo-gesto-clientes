@@ -21,42 +21,7 @@ namespace Gestor_De_Clientes
             InitializeComponent();
             
         }
-        private void conectarBB()
-        {
-           
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory()) // donde está appsettings.json
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-
-            IConfiguration config = builder.Build();
-
-            // Obtener la cadena de conexión desde el JSON
-            string conexion = config.GetConnectionString("conexion");
-
-
-            using (SQLiteConnection conn = new SQLiteConnection(conexion))
-            {
-                conn.Open();
-
-                string consulta = @" 
-                    SELECT c.nombre, c.id, d.tipo
-                    FROM Cliente c JOIN Dispositivo d ON c.id = d.id_cliente;
-                    
-                ";
-
-              
-                using (SQLiteCommand cmd = new SQLiteCommand(consulta, conn))
-                using (SQLiteDataReader reader = cmd.ExecuteReader())
-                {
-                   
-                   //aca cuando empezemos a agregar clientes y dispositivos
-                   //hay que poner para que se muestren las reparaciones pendientes
-                   //tomando de referencia la base de datos de prueba y el winforms de prueba
-                }
-
-            }
-             
-        }
+       
 
 
 
@@ -74,9 +39,6 @@ namespace Gestor_De_Clientes
             f2.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            conectarBB();
-        }
+       
     }
 }

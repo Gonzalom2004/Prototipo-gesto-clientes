@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestor_De_Clientes
 {
-    class Cliente
+    public class Cliente
     {
         //Clase hecha para guardar la logica de negocio, esta clase solo tiene la responsabilidad de guardar
         //propiedades y metodos. Despues se hacer una para la conexion con la base de datos asi cada clase tiene una unica 
@@ -53,6 +53,9 @@ namespace Gestor_De_Clientes
         #endregion
 
         #region "Constructor"
+
+        public Cliente() { } // Necesitamos este constructor vacio para poder usar 
+        //El inicializador de objetos que metemos en el while de la clase ClienteDB (new Cliente {....})
         public Cliente (string _nombre, string _apellido, string _telefono)
         {
             this._nombre = _nombre;

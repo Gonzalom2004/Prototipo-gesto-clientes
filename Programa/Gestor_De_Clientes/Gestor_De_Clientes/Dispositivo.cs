@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestor_De_Clientes
 {
-    class Dispositivo
+    public class Dispositivo
     {
         #region "Atributos"
         private int _id; //Que lo genera la base de datos.
