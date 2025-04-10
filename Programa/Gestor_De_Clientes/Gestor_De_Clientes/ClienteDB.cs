@@ -18,7 +18,7 @@ namespace Gestor_De_Clientes
     {
         private static string CadenaConexion()//Tuve que crear un metodo porque si no el codigo que esta aca dentro no funciona 
                                                //siempre que se quiera obtener la cadena en los metodos de abajo llamamos a este metodo
-
+                                               //Este metodo tambien esta en DispositivoDB buscar manera de no tener que replicar ese metodo en esa clase
         {
 
             var builder = new ConfigurationBuilder()
