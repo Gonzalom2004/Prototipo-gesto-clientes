@@ -42,7 +42,8 @@ namespace Gestor_De_Clientes
             using (SQLiteConnection conn = new SQLiteConnection(conexion))
             {
                 conn.Open();
-                string query = "SELECT ID, Nombre, Apellido, Telefono, FechaAlta FROM Cliente";
+                string query = "SELECT ID, Nombre, Apellido, Telefono, FechaAlta FROM Cliente"; //Aca no probe si se puese usar SELECT * asterisco porque
+                                                                                                //mas abajo el reader usar los indices para seleccionar el atributo
 
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
