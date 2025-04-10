@@ -19,7 +19,7 @@ namespace Gestor_De_Clientes
         public Form1()
         {
             InitializeComponent();
-            conectarBB();
+            
         }
         private void conectarBB()
         {
@@ -43,9 +43,12 @@ namespace Gestor_De_Clientes
                     FROM Cliente c JOIN Dispositivo d ON c.id = d.id_cliente;
                     
                 ";
+
+              
                 using (SQLiteCommand cmd = new SQLiteCommand(consulta, conn))
                 using (SQLiteDataReader reader = cmd.ExecuteReader())
                 {
+                   
                    //aca cuando empezemos a agregar clientes y dispositivos
                    //hay que poner para que se muestren las reparaciones pendientes
                    //tomando de referencia la base de datos de prueba y el winforms de prueba
@@ -69,6 +72,11 @@ namespace Gestor_De_Clientes
         {
             Form2 f2 = new Form2();
             f2.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            conectarBB();
         }
     }
 }

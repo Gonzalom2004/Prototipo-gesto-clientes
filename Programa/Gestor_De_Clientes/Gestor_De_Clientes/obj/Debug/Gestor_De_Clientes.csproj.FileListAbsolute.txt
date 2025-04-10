@@ -95,6 +95,5 @@ C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_C
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\System.Text.Json.xml
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\bin\Debug\System.ValueTuple.xml
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_De_Clientes.Form2.resources
 C:\Users\04gon\OneDrive\Escritorio\Prototipo-gesto-clientes\Programa\Gestor_De_Clientes\Gestor_De_Clientes\obj\Debug\Gestor_D.93C830AE.Up2Date
