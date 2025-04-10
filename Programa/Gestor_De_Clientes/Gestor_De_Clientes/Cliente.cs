@@ -72,10 +72,13 @@ namespace Gestor_De_Clientes
         }
         #endregion
 
-        //Faltan agregar los metodos 
+        //Faltan agregar mas metodos 
         #region "Metodos"
-        //
-
+        
+        public override string ToString()
+        {
+            return Id.ToString()+ " " + Nombre+" "+ Apellido+ " "+Telefono+" "+ FechaAlta;
+        }
 
         #endregion
     }

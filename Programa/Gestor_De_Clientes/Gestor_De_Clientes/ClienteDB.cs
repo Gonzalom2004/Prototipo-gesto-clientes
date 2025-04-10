@@ -22,13 +22,14 @@ namespace Gestor_De_Clientes
         #endregion
 
         #region "Metodos"
-        public List<Cliente> ObtenerClientes()
+        public List<Cliente> ObtenerClientes() //Este metodo lo que hace es traer los datos de la base para poder instanciar los clientes otra vez y meterlos en la lista 
         {
+        
             List<Cliente> lista = new List<Cliente>();
 
             #region "Obtener Cadena de conexion que esta en appsettins.json"
             var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory()) // donde está appsettings.json
+                .SetBasePath(Directory.GetCurrentDirectory()) //busca donde está appsettings.json
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             IConfiguration config = builder.Build();

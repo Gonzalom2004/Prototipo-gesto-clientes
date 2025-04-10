@@ -57,5 +57,10 @@ namespace Gestor_De_Clientes
                 e.Handled = true;
             }
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
