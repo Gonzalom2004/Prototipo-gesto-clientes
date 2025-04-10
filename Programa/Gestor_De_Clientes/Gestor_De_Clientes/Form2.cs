@@ -19,10 +19,19 @@ namespace Gestor_De_Clientes
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text, Tfechaalta.Text);
+            if (ClienteDB.AgregarCliente(cliente))
+            {
+                MessageBox.Show("Se agrego correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se agrego");
+            }
 
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e) //Falta hacer uno de estos para el texbox de fecha alta
         {
             if (Char.IsLetter(e.KeyChar) | Char.IsWhiteSpace(e.KeyChar) | e.KeyChar == '\b')
             {
@@ -59,6 +68,11 @@ namespace Gestor_De_Clientes
         }
 
         private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
