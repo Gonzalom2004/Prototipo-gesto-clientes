@@ -14,10 +14,8 @@ using System.Threading.Tasks;
 
 namespace Gestor_De_Clientes
 {
-    public class ClienteDB
+    public static  class ClienteDB
     {
-        List<Cliente> lista = new List<Cliente>();
-
         private static string CadenaConexion()//Tuve que crear un metodo porque si no el codigo que esta aca dentro no funciona 
                                                //siempre que se quiera obtener la cadena en los metodos de abajo llamamos a este metodo
 
@@ -33,14 +31,12 @@ namespace Gestor_De_Clientes
            return config.GetConnectionString("conexion");
         } 
 
-        #region "Constructor"
-        public ClienteDB() { }
-        //Este constructor lo usamos para inicializar/instanciar la clase para poder usar los metodos de abajo
-        #endregion
-
-        #region "Metodos"
-        public List<Cliente> ObtenerClientes() //Este metodo lo que hace es traer los datos de la base para poder instanciar los clientes otra vez y meterlos en la lista 
+       
+        #region "Metodos" 
+        //algunos tienen que ser metodos static para no tener que instanciar la clase
+        public static List<Cliente> ObtenerClientes() //Este metodo lo que hace es traer los datos de la base para poder instanciar los clientes otra vez y meterlos en la lista 
         {
+            List<Cliente> lista = new List<Cliente>();
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
                 conn.Open();
@@ -91,7 +87,7 @@ namespace Gestor_De_Clientes
             }
         }
 
-        public bool EliminarCliente (int id)
+        public static bool EliminarCliente (int id)
         {
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
@@ -103,7 +99,7 @@ namespace Gestor_De_Clientes
                 int filasAfectadas = cmd.ExecuteNonQuery(); // Esto nos dice la cantidad de registros/filas que fueron afectadas
                 return filasAfectadas > 0; //si es mayor a cero significa que esta bien, que se elimino correctamente 
             }
-        }
+        } 
 
         #endregion
 

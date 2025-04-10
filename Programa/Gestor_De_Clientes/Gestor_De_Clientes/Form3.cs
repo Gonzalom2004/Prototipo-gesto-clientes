@@ -24,11 +24,10 @@ namespace Gestor_De_Clientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClienteDB clienteDB = new ClienteDB();
-
+           
             List<Cliente> lista = new List<Cliente>();
 
-            lista = clienteDB.ObtenerClientes();
+            lista = ClienteDB.ObtenerClientes();
 
             foreach (Cliente C in lista)
             {

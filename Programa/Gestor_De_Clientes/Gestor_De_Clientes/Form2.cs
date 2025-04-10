@@ -17,7 +17,7 @@ namespace Gestor_De_Clientes
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//Acordarse cambiarle nombre a los elementos
         {
             Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text, Tfechaalta.Text);
             if (ClienteDB.AgregarCliente(cliente))
@@ -28,10 +28,12 @@ namespace Gestor_De_Clientes
             {
                 MessageBox.Show("No se agrego");
             }
-
+            
+            
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e) //Falta hacer uno de estos para el texbox de fecha alta
+                                                                            //Acordarse cambiarle nombre a los elementos 
         {
             if (Char.IsLetter(e.KeyChar) | Char.IsWhiteSpace(e.KeyChar) | e.KeyChar == '\b')
             {
@@ -43,7 +45,7 @@ namespace Gestor_De_Clientes
             }
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)//Acordarse cambiarle nombre a los elementos
         {
             if (Char.IsLetter(e.KeyChar) | Char.IsWhiteSpace(e.KeyChar) | e.KeyChar == '\b')
             {
@@ -55,7 +57,7 @@ namespace Gestor_De_Clientes
             }
         }
 
-        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)//Acordarse cambiarle nombre a los elementos
         {
             if (Char.IsDigit(e.KeyChar) | e.KeyChar == '\b')
             {
@@ -75,6 +77,20 @@ namespace Gestor_De_Clientes
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (ClienteDB.EliminarCliente(Convert.ToInt32(textBox1.Text)))
+            {
+                MessageBox.Show("Se elimino corectamente");
+
+            }
+            else
+            {
+                MessageBox.Show("No se elimino");
+            }
         }
     }
 }
