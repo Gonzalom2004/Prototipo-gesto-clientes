@@ -16,12 +16,19 @@ namespace Gestor_De_Clientes
         private string _estado;//Aca la idea es que sean 2 opciones: A REPARAR, REPARADO
         private string _comentario; //Para ingresar aspectos importantes sobre la reparación 
         private Cliente _cliente; //Este atributos es para saber a que cliente corresponde cada dispositivo
+        private string _fechaingreso;
         //Hay que agregar tambien el atributo fecha de alta en el caso de que se agrega un dispositivo sin cliente 
         #endregion
 
 
         #region "Propiedades"
         //Pensar la necesidad de poner algun condicional para la asignación correcta de valores
+        public string FechaIngreso 
+        {
+            get { return _fechaingreso; }
+            set {  _fechaingreso = value; }
+        }
+
         public int ID
         {
             get { return _id; }
@@ -64,13 +71,25 @@ namespace Gestor_De_Clientes
         //El inicializador de objetos que metemos en el while de la clase DispositivoDB (new Cliente {....})
         public Dispositivo (string _tipo, string _marca, string _falla, string _estado, string _comentario, Cliente _cliente)
         {
+            this._id = 0;
             this._tipo = _tipo;
             this._marca = _marca;
             this._falla = _falla;
             this._estado = _estado;
             this._comentario = _comentario;
             this._cliente = _cliente; 
-            
+            this._fechaingreso = DateTime.Today.ToString();
+        }
+        public Dispositivo(int _id, string _tipo, string _marca, string _falla, string _estado, string _comentario, Cliente _cliente)
+        {
+            this._id = _id;
+            this._tipo = _tipo;
+            this._marca = _marca;
+            this._falla = _falla;
+            this._estado = _estado;
+            this._comentario = _comentario;
+            this._cliente = _cliente;
+            this._fechaingreso = DateTime.Today.ToString();
         }
         #endregion
 
