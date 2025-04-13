@@ -33,7 +33,11 @@ namespace Gestor_De_Clientes
             {
                 ListaBuscar.Items.Add(C.ToString());
             }
-            
+
+            List<Dispositivo> list = new List<Dispositivo>();
+
+            list = DispositivoBD.ObtenerDispositivos(lista);
+
         }
     }
 }

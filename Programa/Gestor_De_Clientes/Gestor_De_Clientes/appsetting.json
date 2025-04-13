@@ -1,7 +1,7 @@
 {
   "ConnectionStrings": {
 
-    "conexion": "Data Source= C:\\Users\\04gon\\OneDrive\\Escritorio\\Prototipo-gesto-clientes\\Programa\\Base_De_Datos\\Gestor_De_Cliente.db; Version=3;"
+    "conexion": "Data Source= C:\\Users\\jerem\\Prototipo-gesto-clientes\\Programa\\Base_De_Datos\\Gestor_De_Cliente.db; Version=3;"
     
   }
 }
