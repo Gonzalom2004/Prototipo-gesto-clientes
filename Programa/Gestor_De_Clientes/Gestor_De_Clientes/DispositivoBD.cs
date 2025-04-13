@@ -47,6 +47,7 @@ namespace Gestor_De_Clientes
                            //Falta terminar porque no se que hacer con el id_cliente porque 
                            //la clase dispositovo tiene de atributo a cliente 
                            //¿Tendriamos que buscar aca tambien el cliente para poder ingresarlo como atributo?
+                           
 
 
                         });
