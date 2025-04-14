@@ -19,7 +19,7 @@ namespace Gestor_De_Clientes
 
         private void button1_Click(object sender, EventArgs e)//Acordarse cambiarle nombre a los elementos
         {
-            Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text, Tfechaalta.Text);
+            Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text);
             if (ClienteDB.AgregarCliente(cliente))
             {
                 MessageBox.Show("Se agrego correctamente");
@@ -82,15 +82,7 @@ namespace Gestor_De_Clientes
         private void button2_Click(object sender, EventArgs e)
         {
 
-            if (ClienteDB.EliminarCliente(Convert.ToInt32(textBox1.Text)))
-            {
-                MessageBox.Show("Se elimino corectamente");
-
-            }
-            else
-            {
-                MessageBox.Show("No se elimino");
-            }
+          
         }
     }
 }

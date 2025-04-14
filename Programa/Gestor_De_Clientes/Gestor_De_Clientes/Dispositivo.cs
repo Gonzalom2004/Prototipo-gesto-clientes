@@ -82,11 +82,11 @@ namespace Gestor_De_Clientes
         }
         public Dispositivo(int _id, string _tipo, string _marca, string _falla, string _estado, string _comentario, Cliente _cliente)
         {
-            this._id = _id;
+            this._id = _id;//
             this._tipo = _tipo;
-            this._marca = _marca;
-            this._falla = _falla;
-            this._estado = _estado;
+            this._marca = _marca;// Aca tambien iria el modelo
+            this._falla = _falla;//
+            this._estado = _estado;//
             this._comentario = _comentario;
             this._cliente = _cliente;
             this._fechaingreso = DateTime.Today.ToString();
@@ -96,6 +96,13 @@ namespace Gestor_De_Clientes
         //Faltar agregar los metodos
         #region "Metodos"
         //Saber fecha de modificacion de estado();
+
+
+
+        public override string ToString()
+        {
+            return $"{ID} | {Estado} | {Falla} | {Marca} "; 
+        }
         #endregion
 
 

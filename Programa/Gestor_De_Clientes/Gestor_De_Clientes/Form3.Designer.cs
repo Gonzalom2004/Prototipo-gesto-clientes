@@ -30,15 +30,16 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.ListaBuscar = new System.Windows.Forms.ListBox();
+            this.BEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(381, 161);
+            this.button1.Location = new System.Drawing.Point(157, 386);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "mostrar";
+            this.button1.Text = "Mostrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -47,14 +48,25 @@
             this.ListaBuscar.FormattingEnabled = true;
             this.ListaBuscar.Location = new System.Drawing.Point(37, 26);
             this.ListaBuscar.Name = "ListaBuscar";
-            this.ListaBuscar.Size = new System.Drawing.Size(259, 342);
+            this.ListaBuscar.Size = new System.Drawing.Size(720, 342);
             this.ListaBuscar.TabIndex = 1;
+            // 
+            // BEliminar
+            // 
+            this.BEliminar.Location = new System.Drawing.Point(257, 386);
+            this.BEliminar.Name = "BEliminar";
+            this.BEliminar.Size = new System.Drawing.Size(75, 23);
+            this.BEliminar.TabIndex = 2;
+            this.BEliminar.Text = "Eliminar";
+            this.BEliminar.UseVisualStyleBackColor = true;
+            this.BEliminar.Click += new System.EventHandler(this.BEliminar_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BEliminar);
             this.Controls.Add(this.ListaBuscar);
             this.Controls.Add(this.button1);
             this.Name = "Form3";
@@ -68,5 +80,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox ListaBuscar;
+        private System.Windows.Forms.Button BEliminar;
     }
 }

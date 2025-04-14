@@ -73,13 +73,14 @@ namespace Gestor_De_Clientes
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
                 conn.Open();
-                string query = "INSERT INTO Cliente (Nombre, Apellido, Telefono, FechaAlta) VALUES (@nombre,@apellido, @telefono,@fechaalta )";
+                string query = "INSERT INTO Cliente (Nombre, Apellido, Telefono, FechaAlta) VALUES (@nombre,@apellido, @telefono, @fechaAlta )";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn)) //El using hay que usarlo para que no queden conexiones abeirta y la base de datos se bloquee
                 {
                     cmd.Parameters.AddWithValue("@nombre", cliente.Nombre);
                     cmd.Parameters.AddWithValue("@apellido", cliente.Apellido);
                     cmd.Parameters.AddWithValue("@telefono", cliente.Telefono);
-                    cmd.Parameters.AddWithValue("@fechaalta", cliente.FechaAlta);
+                    cmd.Parameters.AddWithValue("@fechaAlta", cliente.FechaAlta);
+                    
 
                     int filasAfectadas = cmd.ExecuteNonQuery(); // Esto nos dice la cantidad de registros/filas que fueron afectadas
                     return filasAfectadas > 0; //si es mayor a cero significa que esta bien que se inserto correctamente 

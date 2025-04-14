@@ -27,14 +27,15 @@ namespace Gestor_De_Clientes
         }
 
         #region "Metodos"
-        public static List<Dispositivo> ObtenerDispositivos(List<Cliente> clientes)
+        public static List<Dispositivo> ObtenerDispositivos()
         {
+            List<Cliente> clientes = ClienteDB.ObtenerClientes();
+
             List<Dispositivo> lista = new List<Dispositivo>();
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
                 conn.Open();
-                string query = "SELECT ID, ID_Cliente, Tipo, Marca, Falla, Estado, Comentario FROM Dispositivo";
-
+                string query = "SELECT ID, ID_Cliente, Tipo, Marca, Falla, Estado, Comentario FROM Dispositivo"; 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 using(SQLiteDataReader reader = cmd.ExecuteReader())
                 {
@@ -53,12 +54,6 @@ namespace Gestor_De_Clientes
                            Estado= reader.GetString(5),
                            Comentario= reader.GetString(6),
                            Cliente= cliente
-                           //Falta terminar porque no se que hacer con el id_cliente porque 
-                           //la clase dispositovo tiene de atributo a cliente 
-                           //¿Tendriamos que buscar aca tambien el cliente para poder ingresarlo como atributo?
-                           
-
-
                         });
                     }
                 }
@@ -105,6 +100,8 @@ namespace Gestor_De_Clientes
             }
         }
 
+
+       
         #endregion
     }
 }

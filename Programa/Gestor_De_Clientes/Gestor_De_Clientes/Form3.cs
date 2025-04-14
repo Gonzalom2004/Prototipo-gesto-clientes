@@ -22,22 +22,39 @@ namespace Gestor_De_Clientes
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//Boton para mostrar todo lo de la base de datos sin filtrar
         {
-           
-            List<Cliente> lista = new List<Cliente>();
+            ListaBuscar.Items.Clear();
+            List<Dispositivo> lista = new List<Dispositivo>();
 
-            lista = ClienteDB.ObtenerClientes();
+            lista = DispositivoBD.ObtenerDispositivos();
 
-            foreach (Cliente C in lista)
+            foreach (Dispositivo D in lista)
             {
-                ListaBuscar.Items.Add(C.ToString());
+                ListaBuscar.Items.Add(D.ToString() +" | "+  D.Cliente.ToString());
             }
 
-            List<Dispositivo> list = new List<Dispositivo>();
 
-            list = DispositivoBD.ObtenerDispositivos(lista);
 
+        }
+
+        private void BEliminar_Click(object sender, EventArgs e)
+        {
+            //Este metodo de eliminar funciona si los que esta listado coincide con el orden de la lista 
+            
+            List<Dispositivo> lista = new List<Dispositivo>();
+            lista = DispositivoBD.ObtenerDispositivos();//Acá estoy trayendo todo lo que hay en la base de datos sin filtrar nada
+            int indice = ListaBuscar.SelectedIndex;
+            
+            if (indice == -1)
+            {
+                MessageBox.Show("Debes seleccionar un dispositivo");
+            }
+            else
+            {
+                Dispositivo dispositivo = lista[indice];
+                DispositivoBD.EliminarDispositivo(dispositivo.ID);
+            }
         }
     }
 }

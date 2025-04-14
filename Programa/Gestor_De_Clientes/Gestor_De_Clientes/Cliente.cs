@@ -62,16 +62,16 @@ namespace Gestor_De_Clientes
             this._apellido = _apellido;
             this._id = 0;//mirar esto deberia ser null
             this._telefono = _telefono;
-            this._fechaAlta = DateTime.Today.ToString();
+            this._fechaAlta = Convert.ToString( DateTime.Today);
 
         }
-        public Cliente(string _nombre, string _apellido, int _id, string _telefono)
+        public Cliente(string _nombre, string _apellido, int _id, string _telefono, string _fechaAlta)
         {
             this._nombre = _nombre;
             this._apellido = _apellido;
             this._id = _id ;
             this._telefono = _telefono;
-            this._fechaAlta = DateTime.Today.ToString();
+            this._fechaAlta = _fechaAlta;
         }
         #endregion
 
@@ -80,7 +80,8 @@ namespace Gestor_De_Clientes
         
         public override string ToString()
         {
-            return Id.ToString()+ " " + Nombre+" "+ Apellido+ " "+Telefono+" "+ FechaAlta;
+            return $"{Id} | {Nombre} | {Apellido}";
+           
         }
 
         #endregion
