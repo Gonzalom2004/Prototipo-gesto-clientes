@@ -35,13 +35,13 @@ namespace Gestor_De_Clientes
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 FAgregarCliente = new Form2();
+            FAgregar FAgregarCliente = new FAgregar();
             FAgregarCliente.ShowDialog();
         }
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 FBuscar = new Form3();
+            FBuscar FBuscar = new FBuscar();
             FBuscar.ShowDialog();
         }
     }

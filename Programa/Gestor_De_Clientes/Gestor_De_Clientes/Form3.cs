@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gestor_De_Clientes
 {
-    public partial class Form3: Form
+    public partial class FBuscar: Form
     {
-        public Form3()
+        public FBuscar()
         {
             InitializeComponent();
         }
@@ -21,8 +21,8 @@ namespace Gestor_De_Clientes
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)//Boton para mostrar todo lo de la base de datos sin filtrar
+        private void listaTodo() // Cree este metodo porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
+                                //recordar que es mostrar/listar todo sin filtar ni nada 
         {
             ListaBuscar.Items.Clear();
             List<Dispositivo> lista = new List<Dispositivo>();
@@ -31,16 +31,18 @@ namespace Gestor_De_Clientes
 
             foreach (Dispositivo D in lista)
             {
-                ListaBuscar.Items.Add(D.ToString() +" | "+  D.Cliente.ToString());
+                ListaBuscar.Items.Add(D.ToString() + " | " + D.Cliente.ToString());
             }
-
-
-
         }
 
-        private void BEliminar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)//Boton para mostrar todo lo de la base de datos sin filtrar
         {
-            //Este metodo de eliminar funciona si los que esta listado coincide con el orden de la lista 
+            listaTodo();// Cree este metodo mas arriba porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
+                        //recordar que es mostrar/listar todo sin filtar ni nada 
+        }
+
+        private void BEliminar_Click(object sender, EventArgs e) //Este metodo de eliminar funciona si los que esta listado coincide con el orden de la lista 
+        {
             
             List<Dispositivo> lista = new List<Dispositivo>();
             lista = DispositivoBD.ObtenerDispositivos();//Acá estoy trayendo todo lo que hay en la base de datos sin filtrar nada
@@ -54,7 +56,10 @@ namespace Gestor_De_Clientes
             {
                 Dispositivo dispositivo = lista[indice];
                 DispositivoBD.EliminarDispositivo(dispositivo.ID);
+                
             }
+            ListaBuscar.Items.Clear();
+            listaTodo();
         }
     }
 }

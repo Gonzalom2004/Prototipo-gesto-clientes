@@ -1,6 +1,6 @@
 ﻿namespace Gestor_De_Clientes
 {
-    partial class Form3
+    partial class FBuscar
     {
         /// <summary>
         /// Required designer variable.
@@ -61,7 +61,7 @@
             this.BEliminar.UseVisualStyleBackColor = true;
             this.BEliminar.Click += new System.EventHandler(this.BEliminar_Click);
             // 
-            // Form3
+            // FBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,8 +69,8 @@
             this.Controls.Add(this.BEliminar);
             this.Controls.Add(this.ListaBuscar);
             this.Controls.Add(this.button1);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "FBuscar";
+            this.Text = "Buscar";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
 

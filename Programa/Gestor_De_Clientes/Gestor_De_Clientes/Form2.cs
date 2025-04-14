@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gestor_De_Clientes
 {
-    public partial class Form2 : Form
+    public partial class FAgregar : Form
     {
-        public Form2()
+        public FAgregar()
         {
             InitializeComponent();
         }
