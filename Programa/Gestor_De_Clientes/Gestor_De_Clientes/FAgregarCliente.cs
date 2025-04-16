@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Gestor_De_Clientes
 {
     public partial class FAgregarCliente : Form
@@ -20,44 +19,17 @@ namespace Gestor_De_Clientes
 
         private void button1_Click(object sender, EventArgs e)//Acordarse cambiarle nombre a los elementos
         {
-
-            string telefonoIngresado = Ttelefono.Text;
-           
-
-            var (existe, clienteExistente) = ClienteDB.VerificarClientePorTelefono(telefonoIngresado);
-            //como el metodo retornar dos valores hay que definir aca con VAR            
-            
-            if (existe)
-            {
-                MessageBox.Show($"Cliente ya registrado:\n\n" +
-                     $"Nombre: {clienteExistente.Nombre} {clienteExistente.Apellido}\n" +
-                     $"ID: {clienteExistente.Id}\n" +
-                     $"Fecha Alta: {clienteExistente.FechaAlta}",
-                     "Cliente Existente",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning);
-
-                Ttelefono.Focus();
-                Ttelefono.SelectAll();                   
+            Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text);
+            if (ClienteDB.AgregarCliente(cliente) > 0)//hay que verificar si es mayor a cero ya que el metodo .AgregarCliente retorna el id del cliente retorna un int
+            {//Entonces si es mayor que 0 quiere decir que se agrego con exito 
+                MessageBox.Show("Se agrego correctamente");
             }
             else
             {
-                Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text);
-                if (ClienteDB.AgregarCliente(cliente) > 0)//hay que verificar si es mayor a cero ya que el metodo .AgregarCliente retorna el id del cliente retorna un int
-                {//Entonces si es mayor que 0 quiere decir que se agrego con exito 
-                    MessageBox.Show("Se agrego correctamente");
-                }
-                else
-                {
-                    MessageBox.Show("Error! no se agrego");
-                }
+                MessageBox.Show("Error! no se agrego");
             }
-
-
-
             
-
-
+            
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e) //Falta hacer uno de estos para el texbox de fecha alta
