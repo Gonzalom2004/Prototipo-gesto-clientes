@@ -66,24 +66,24 @@ namespace Gestor_De_Clientes
 
         }
         
-        public static bool AgregarCliente(Cliente cliente)//Usamos un metodo bool para corroborar que se hayan insertado las filas si o no 
+        public static int AgregarCliente(Cliente cliente)//Usamos un metodo bool para corroborar que se hayan insertado las filas si o no 
                                                     //Sirve para saber si la operación fue exitosa o fallida es util para mostrar mensajer al usuario 
         {
           
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
                 conn.Open();
-                string query = "INSERT INTO Cliente (Nombre, Apellido, Telefono, FechaAlta) VALUES (@nombre,@apellido, @telefono, @fechaAlta )";
+                string query = "INSERT INTO Cliente (Nombre, Apellido, Telefono, FechaAlta) VALUES (@nombre,@apellido, @telefono, @fechaAlta );SELECT last_insert_rowid();";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn)) //El using hay que usarlo para que no queden conexiones abeirta y la base de datos se bloquee
                 {
                     cmd.Parameters.AddWithValue("@nombre", cliente.Nombre);
                     cmd.Parameters.AddWithValue("@apellido", cliente.Apellido);
                     cmd.Parameters.AddWithValue("@telefono", cliente.Telefono);
                     cmd.Parameters.AddWithValue("@fechaAlta", cliente.FechaAlta);
-                    
 
-                    int filasAfectadas = cmd.ExecuteNonQuery(); // Esto nos dice la cantidad de registros/filas que fueron afectadas
-                    return filasAfectadas > 0; //si es mayor a cero significa que esta bien que se inserto correctamente 
+
+                    int nuevoID = Convert.ToInt32(cmd.ExecuteScalar());
+                    return nuevoID;
                 
                 }
             }
@@ -102,6 +102,8 @@ namespace Gestor_De_Clientes
                 return filasAfectadas > 0; //si es mayor a cero significa que esta bien, que se elimino correctamente 
             }
         } 
+
+        //Metodo para saber si el cliente existe 
 
         #endregion
 

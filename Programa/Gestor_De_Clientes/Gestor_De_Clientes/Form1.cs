@@ -35,7 +35,7 @@ namespace Gestor_De_Clientes
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FAgregar FAgregarCliente = new FAgregar();
+            FAgregarCliente FAgregarCliente = new FAgregarCliente();
             FAgregarCliente.ShowDialog();
         }
 
@@ -43,6 +43,12 @@ namespace Gestor_De_Clientes
         {
             FBuscar FBuscar = new FBuscar();
             FBuscar.ShowDialog();
+        }
+
+        private void dispositivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FAgregarDispositivo fAgregarDispositivo = new FAgregarDispositivo();
+            fAgregarDispositivo.ShowDialog();
         }
     }
 }

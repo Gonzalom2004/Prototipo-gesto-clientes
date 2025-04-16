@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gestor_De_Clientes
 {
-    public partial class FAgregar : Form
+    public partial class FAgregarCliente : Form
     {
-        public FAgregar()
+        public FAgregarCliente()
         {
             InitializeComponent();
         }
@@ -20,13 +20,13 @@ namespace Gestor_De_Clientes
         private void button1_Click(object sender, EventArgs e)//Acordarse cambiarle nombre a los elementos
         {
             Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text);
-            if (ClienteDB.AgregarCliente(cliente))
-            {
+            if (ClienteDB.AgregarCliente(cliente) > 0)//hay que verificar si es mayor a cero ya que el metodo .AgregarCliente retorna el id del cliente retorna un int
+            {//Entonces si es mayor que 0 quiere decir que se agrego con exito 
                 MessageBox.Show("Se agrego correctamente");
             }
             else
             {
-                MessageBox.Show("No se agrego");
+                MessageBox.Show("Error! no se agrego");
             }
             
             

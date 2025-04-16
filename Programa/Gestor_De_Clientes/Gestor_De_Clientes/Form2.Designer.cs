@@ -1,6 +1,6 @@
 ﻿namespace Gestor_De_Clientes
 {
-    partial class FAgregar
+    partial class FAgregarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -98,7 +98,7 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Telefono:";
             // 
-            // FAgregar
+            // FAgregarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.Ttelefono);
             this.Controls.Add(this.Tapellido);
             this.Controls.Add(this.Tnombre);
-            this.Name = "FAgregar";
+            this.Name = "FAgregarCliente";
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);

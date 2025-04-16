@@ -107,6 +107,18 @@
     <Compile Include="ClienteDB.cs" />
     <Compile Include="Dispositivo.cs" />
     <Compile Include="DispositivoBD.cs" />
+    <Compile Include="FAgregarDispositivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAgregarDispositivo.Designer.cs">
+      <DependentUpon>FAgregarDispositivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBuscadorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBuscadorCliente.Designer.cs">
+      <DependentUpon>FBuscadorCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FAgregarDispositivo.resx">
+      <DependentUpon>FAgregarDispositivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FBuscadorCliente.resx">
+      <DependentUpon>FBuscadorCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
