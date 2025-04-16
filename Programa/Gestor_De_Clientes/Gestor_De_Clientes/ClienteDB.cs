@@ -103,7 +103,66 @@ namespace Gestor_De_Clientes
             }
         } 
 
-        //Metodo para saber si el cliente existe 
+        public static (bool existe, Cliente clienExistente) VerificarClientePorTelefono (string telefono) //Este metodo esta buerno ya que si existe el 
+                                                                                                          //Cliente ademas de decirme que existe me devuelve el cliente 
+        {
+            //Primero normalizamos el teléfono (eliminar espacios, guiones, lo que sea)
+            string telefonoNormalizado = NormalizarTelefono(telefono);
+
+            if (string.IsNullOrWhiteSpace(telefonoNormalizado)) //si al normalizar nos devuelve un null no tiene sentido buscar en la base de datos
+            {                                                   //Igual la idea en controlar en el codigo de la interfaz que nunca se entre un null
+                                                                //probablemente tendriamos que usar un masked o algo, un estandar de numero de telefono
+                return (false, null); 
+            }
+
+            using ( var conn = new SQLiteConnection(CadenaConexion()))
+            {
+                conn.Open();
+
+                string query = "SELECT * FROM Cliente WHERE Telefono = @telefono limit 1";
+
+                using (var cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@telefono", telefonoNormalizado);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            //Retornar true y el cliente existente 
+                            return (true, new Cliente
+                            {
+                                Id = reader.GetInt32(0),
+                                Nombre = reader.GetString(1),
+                                Apellido = reader.GetString(2),
+                                Telefono = reader.GetString(3),
+                                FechaAlta = reader.GetString(4)
+                            });
+                        }
+                    }
+                }
+            }
+            return (false, null); 
+
+
+        }
+
+        private static string  NormalizarTelefono(string telefono)// Es para eliminar cualquier caracter que no sea un numero
+        {
+            if (string.IsNullOrWhiteSpace(telefono))//Primeor verificamos que no sea null,vacio o solo contiene espacios
+            {
+                return null;//si es así, retorna null, indicando que no hay un número de teléfono válido para procesar
+            }
+            return new string(telefono.Where(char.IsDigit).ToArray()); //Aca usamos la libreria LINQ para poder iterar sobre cada caracter
+                                                                       //char.Isdigit es una función que retorna true si el carácter es un 
+                                                                       //digito numerico, esto para conservar solo los caracteres que son
+                                                                       //digito numéricos. El .ToArray() convierte los caracteres filtrados 
+                                                                       //en un array de tipo char y el new string crea un nuevo string a 
+                                                                       // partir  del array de caracteres, que ahora solo tendria que contener
+                                                                       //solo digitos. Repasar esto que no lo termine de entender
+        }
+
+      
 
         #endregion
 
