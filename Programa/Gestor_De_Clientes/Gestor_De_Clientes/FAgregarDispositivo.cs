@@ -40,6 +40,9 @@ namespace Gestor_De_Clientes
             
             if (CHagregar.Checked)
             {
+                Tnombre.Text = null;
+                Tapellido.Text = null;
+                Ttelefono.Text = null; 
                 Tnombre.Enabled = true;
                 Tapellido.Enabled = true;
                 Ttelefono.Enabled = true;
@@ -63,26 +66,89 @@ namespace Gestor_De_Clientes
             { 
                 if (CHagregar.Checked)//Hay que verificar que el cliente ya existe para no agregarlo otra vez 
                 {
-                    Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text);
-                    int idBaseDatos = ClienteDB.AgregarCliente(cliente); //Este metodo luego de agregar el dispositivo me devuelve el id que genero el autoincrement de la base de datos
-                    cliente.Id = idBaseDatos;//Agregamos el id a la propiedad de cliente 
-                    Dispositivo dispositivo = new Dispositivo(Ttipo.Text, Tmarca.Text, Tfalla.Text, CBestado.Text, Tcomentario.Text, cliente);
-                    DispositivoBD.AgregarDispositivo(dispositivo);
-                    MessageBox.Show("Se agrego correctamente");
+                    var (existe, clienteExistente) = ClienteDB.VerificarClientePorTelefono(Ttelefono.Text);
+                    if (existe)
+                    {
+                        DialogResult respuesta = MessageBox.Show($"Cliente ya registrado con ese numero:\n\n" +
+                        $"Nombre: {clienteExistente.Nombre} {clienteExistente.Apellido}\n" +
+                        $"ID: {clienteExistente.Id}\n" +
+                        $"Fecha Alta: {clienteExistente.FechaAlta} \n\n "+
+                        "Deseas usarlo?",
+                        "Advertencia",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                        if (respuesta == DialogResult.Yes)
+                        {
+                            Tnombre.Text = clienteExistente.Nombre;
+                            Tapellido.Text = clienteExistente.Apellido;
+                            Ttelefono.Text = clienteExistente.Telefono;
+                            Dispositivo dispositivo = new Dispositivo(Ttipo.Text, Tmarca.Text, Tfalla.Text, CBestado.Text, Tcomentario.Text, clienteExistente);
+                            MessageBox.Show("Se agrego correctamente");
+                            Ttipo.Text = null;
+                            Tmarca.Text = null;
+                            Tfalla.Text = null;
+                            CBestado.Text = null;
+                            Tcomentario.Text = null; 
+                            Tnombre.Text = null;
+                            Tapellido.Text = null;
+                            Ttelefono.Text = null;
+                            CHagregar.Checked = false; 
+                            Tnombre.Enabled = false;
+                            Tapellido.Enabled = false;
+                            Ttelefono.Enabled = false;
+                            
+                        }
+                        else if (respuesta == DialogResult.No)
+                        {
+                            Ttelefono.Text = null;
+                            Ttelefono.Focus();
+                        }
+
+
+                    }
+                    else
+                    {
+                        Cliente cliente = new Cliente(Tnombre.Text, Tapellido.Text, Ttelefono.Text);
+                        int idBaseDatos = ClienteDB.AgregarCliente(cliente); //Este metodo luego de agregar el dispositivo me devuelve el id que genero el autoincrement de la base de datos
+                        cliente.Id = idBaseDatos;//Agregamos el id a la propiedad de cliente 
+                        Dispositivo dispositivo = new Dispositivo(Ttipo.Text, Tmarca.Text, Tfalla.Text, CBestado.Text, Tcomentario.Text, cliente);
+                        DispositivoBD.AgregarDispositivo(dispositivo);
+                        MessageBox.Show("Se agrego correctamente");
+                        Ttipo.Text = null;
+                        Tmarca.Text = null;
+                        Tfalla.Text = null;
+                        CBestado.Text = null;
+                        Tcomentario.Text = null;
+                        Tnombre.Text = null;
+                        Tapellido.Text = null;
+                        Ttelefono.Text = null;
+                        CHagregar.Checked = false;
+                        Tnombre.Enabled = false;
+                        Tapellido.Enabled = false;
+                        Ttelefono.Enabled = false;
+                    }
+                    
                 }
                 else
                 {
                     Dispositivo dispositivo = new Dispositivo(Ttipo.Text, Tmarca.Text, Tfalla.Text, CBestado.Text, Tcomentario.Text, _clienteActual);
                     DispositivoBD.AgregarDispositivo(dispositivo);
                     MessageBox.Show("Se agrego correctamente");
-                }
-                    
+                    Ttipo.Text = null;
+                    Tmarca.Text = null;
+                    Tfalla.Text = null;
+                    CBestado.Text = null;
+                    Tcomentario.Text = null;
+                    Tnombre.Text = null;
+                    Tapellido.Text = null;
+                    Ttelefono.Text = null;
+                    CHagregar.Checked = false;
+                    Tnombre.Enabled = false;
+                    Tapellido.Enabled = false;
+                    Ttelefono.Enabled = false;
+                }  
             }
-                
-                
-            
-
-           
         }
         private bool DatosDispoCompletos()
         {
@@ -150,6 +216,7 @@ namespace Gestor_De_Clientes
                     Tapellido.Text = cliente.Apellido;
                     Ttelefono.Text = cliente.Telefono;
                     _clienteActual = cliente;
+                    Bagregar.Enabled = true; 
 
                 }
                
