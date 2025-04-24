@@ -8,6 +8,11 @@ namespace Gestor_De_Clientes
 {
     public class DispositivoFiltro
     {
+        //La clase esta solo hecha con propiedades por esta diseñada como un DTO (Data Transfer Object) o objeto de transferencia de datos
+        //Su estructura simple con solo propiedades tiene varias razones importantes
+        //Con esta clase tambien seguimos el principio de responsabilidad única es decir solo se encargar de trasportar datos de filtrado
+        //No debe contener lógica de negocio ni saber cómo se aplican los filtros 
+
         //Cada propiedad de aca abajo representa una campo por el que se puede filtrar 
         public string Estado { get; set; } //Esto para filtrar por estado "A Reparar","Reparado"
         public string Tipo { get; set; } //Para filtrar por tipo asi sea celular , notebook atc...
