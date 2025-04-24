@@ -34,7 +34,7 @@
             this.dispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.Lpendientes = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,14 +61,14 @@
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // dispositivoToolStripMenuItem
             // 
             this.dispositivoToolStripMenuItem.Name = "dispositivoToolStripMenuItem";
-            this.dispositivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dispositivoToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.dispositivoToolStripMenuItem.Text = "Dispositivo";
             this.dispositivoToolStripMenuItem.Click += new System.EventHandler(this.dispositivoToolStripMenuItem_Click);
             // 
@@ -89,25 +89,26 @@
             this.label1.Text = "Reparaciónes Pendientes:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // listBox1
+            // Lpendientes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(25, 82);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(208, 303);
-            this.listBox1.TabIndex = 2;
+            this.Lpendientes.FormattingEnabled = true;
+            this.Lpendientes.Location = new System.Drawing.Point(25, 82);
+            this.Lpendientes.Name = "Lpendientes";
+            this.Lpendientes.Size = new System.Drawing.Size(208, 303);
+            this.Lpendientes.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 435);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.Lpendientes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -123,7 +124,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispositivoToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox Lpendientes;
     }
 }
 

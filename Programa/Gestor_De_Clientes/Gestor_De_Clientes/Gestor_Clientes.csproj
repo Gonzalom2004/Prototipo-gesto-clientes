@@ -107,6 +107,7 @@
     <Compile Include="ClienteDB.cs" />
     <Compile Include="Dispositivo.cs" />
     <Compile Include="DispositivoBD.cs" />
+    <Compile Include="DispositivoFiltro.cs" />
     <Compile Include="FAgregarDispositivo.cs">
       <SubType>Form</SubType>
     </Compile>

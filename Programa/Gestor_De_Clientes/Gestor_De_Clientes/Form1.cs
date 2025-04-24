@@ -50,5 +50,19 @@ namespace Gestor_De_Clientes
             FAgregarDispositivo fAgregarDispositivo = new FAgregarDispositivo();
             fAgregarDispositivo.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)//Cuando carga una de las cosas que hace es listar los dispositivos pendientes
+        {
+            DispositivoFiltro filtro = new DispositivoFiltro { Estado = "A reparar" };
+
+            List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
+
+
+            foreach (Dispositivo D in pendientes)
+            {
+                Lpendientes.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
+                                                     //o al darle doble click diga mas datos sobre el dispositivo
+            }
+        }
     }
 }

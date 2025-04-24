@@ -6,15 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Gestor_De_Clientes
 {
     public static class DispositivoBD
     {
         private static string CadenaConexion()//Tuve que crear un metodo porque si no el codigo que esta aca dentro no funciona 
-                                              //siempre que se quiera obtener la cadena en los metodos de abajo llamamos a este metodo
-
-        {
+        {                                     //siempre que se quiera obtener la cadena en los metodos de abajo llamamos a este metodo
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory()) //busca donde está appsettings.json
@@ -27,37 +26,75 @@ namespace Gestor_De_Clientes
         }
 
         #region "Metodos"
-        public static List<Dispositivo> ObtenerDispositivos()
-        {
+        public static List<Dispositivo> ObtenerDispositivos(DispositivoFiltro filtros = null)//el null es para decir que no es necesario mandar algun parametros por si es es el caso de que se quiere listar todos los dispositivos  
+        {                                                    
             List<Cliente> clientes = ClienteDB.ObtenerClientes();
 
             List<Dispositivo> lista = new List<Dispositivo>();
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
                 conn.Open();
-                string query = "SELECT ID, ID_Cliente, Tipo, Marca, Falla, Estado, Comentario FROM Dispositivo"; 
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
-                using(SQLiteDataReader reader = cmd.ExecuteReader())
+                
+                string query = "SELECT ID, ID_Cliente, Tipo, Marca, Falla, Estado, Comentario FROM Dispositivo";
+
+                //Lista para condiciones y parámetros:
+                var condiciones = new List<string>();
+                var parametros = new List<SQLiteParameter>();
+
+                //Construir condiciones dinámicamente si hay filtros:
+                if (filtros != null)
                 {
-                    while (reader.Read())
+                    if (!string.IsNullOrEmpty(filtros.Estado)) 
                     {
-                        int idcliente = reader.GetInt32(1);
-                        Cliente cliente = clientes.FirstOrDefault(c => c.Id == idcliente);
+                        condiciones.Add("Estado = @Estado");
+                        parametros.Add(new SQLiteParameter("@Estado", filtros.Estado));//Metemos la propiedad Estado de la clase DispositivoFiltro 
+                    }
+                    if (!string.IsNullOrEmpty(filtros.Tipo))
+                    {
+                        condiciones.Add("Tipo = @Tipo");
+                        parametros.Add(new SQLiteParameter("@Tipo", filtros.Tipo)); //Metemos la propiedad Tipo de la clase DispositivoFiltro
+                    }
+                    //Aca podemos seguir metiendo mas condiciones para el filtrado es bastante escalable esta forma de filtrar 
+                }
+                //Aca agregamos el WHERE si es que hay condiciones
+                if(condiciones.Count > 0)//Si es distinto de 0 quiere decir que hay condiciones para agregar con WHERE  
+                {
+                    query += " WHERE " + string.Join(" AND ", condiciones);
+                }
 
 
-                        lista.Add(new Dispositivo
-                        {//Le asignamos los valores a las propiedades
-                           ID= reader.GetInt32(0),
-                           Tipo= reader.GetString(2),
-                           Marca= reader.GetString(3),
-                           Falla= reader.GetString(4),
-                           Estado= reader.GetString(5),
-                           Comentario= reader.GetString(6),
-                           Cliente= cliente
-                        });
+                //Aca ejecutamos la consulta:
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    foreach (var param in parametros)
+                    {
+                        cmd.Parameters.Add(param);
+                    }
+
+                    //Aca con el reader leemos los resultados
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int idcliente = reader.GetInt32(1);
+                            Cliente cliente = clientes.FirstOrDefault(c => c.Id == idcliente);
+
+
+                            lista.Add(new Dispositivo
+                            {//Le asignamos los valores a las propiedades
+                                ID = reader.GetInt32(0),
+                                Tipo = reader.GetString(2),
+                                Marca = reader.GetString(3),
+                                Falla = reader.GetString(4),
+                                Estado = reader.GetString(5),
+                                Comentario = reader.GetString(6),
+                                Cliente = cliente
+                            });
+                        }
                     }
                 }
             }
+               
             return lista;
         }
 

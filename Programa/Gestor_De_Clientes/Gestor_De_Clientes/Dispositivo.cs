@@ -10,8 +10,8 @@ namespace Gestor_De_Clientes
     {
         #region "Atributos"
         private int _id; //Que lo genera la base de datos.
-        private string _tipo; //Aca la idea es que sean tres tipos: TELEFONO, TABLET, VARIOS cuando le das a varios se aber una texbox donde agregar el tipo que sea
-        private string _marca; // seria mejor capaz usar el nombre de modelo 
+        private string _tipo; //Que tipo de dispositivo es el que se va a reparar/guardad en la base de datos 
+        private string _marca; // Aca se tendria que ingrear la marca y el modelo
         private string _falla;//Para ingresar la descripcion sencilla/corta como: pantalla rota, cambio de bateria 
         private string _estado;//Aca la idea es que sean 2 opciones: A REPARAR, REPARADO
         private string _comentario; //Para ingresar aspectos importantes sobre la reparación 

@@ -72,7 +72,7 @@ namespace Gestor_De_Clientes
                         DialogResult respuesta = MessageBox.Show($"Cliente ya registrado con ese numero:\n\n" +
                         $"Nombre: {clienteExistente.Nombre} {clienteExistente.Apellido}\n" +
                         $"ID: {clienteExistente.Id}\n" +
-                        $"Fecha Alta: {clienteExistente.FechaAlta} \n\n "+
+                        $"Fecha Alta: {clienteExistente.FechaAlta} \n\n"+
                         "Deseas usarlo?",
                         "Advertencia",
                         MessageBoxButtons.YesNo,
