@@ -61,7 +61,8 @@ namespace Gestor_De_Clientes
             foreach (Dispositivo D in pendientes)
             {
                 Lpendientes.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
-                                                     //o al darle doble click diga mas datos sobre el dispositivo
+                                                     //o al darle doble click diga mas datos sobre el dispositivo 
+                                                     //Agregar funcionalidad de cambiar estado a reparado 
             }
         }
     }

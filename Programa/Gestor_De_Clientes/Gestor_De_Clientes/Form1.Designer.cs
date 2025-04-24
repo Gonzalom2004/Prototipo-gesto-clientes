@@ -94,7 +94,7 @@
             this.Lpendientes.FormattingEnabled = true;
             this.Lpendientes.Location = new System.Drawing.Point(25, 82);
             this.Lpendientes.Name = "Lpendientes";
-            this.Lpendientes.Size = new System.Drawing.Size(208, 303);
+            this.Lpendientes.Size = new System.Drawing.Size(312, 303);
             this.Lpendientes.TabIndex = 2;
             // 
             // Form1

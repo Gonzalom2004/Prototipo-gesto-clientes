@@ -31,15 +31,18 @@ namespace Gestor_De_Clientes
             List<Cliente> clientes = ClienteDB.ObtenerClientes();
 
             List<Dispositivo> lista = new List<Dispositivo>();
-            using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
-            {
-                conn.Open();
+            using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion())) //El objeto del tipo SQLiteConnection conn se encarga de manejar toda la comunicación con la BD                                                                                    
+            {                                                                       //Cuando recien se instancia se establece como .Closed() por eso abajo la abrimos con conn.Open()
+                                                                                    //El using se encargar de cerrar la conexion cuando hay una excepcion o se deja de usar y libera los recursos 
+                                                                                    //Es para una ejecución segura 
+                conn.Open();//Se abre la conexión fisica con la base de datos
                 
                 string query = "SELECT ID, ID_Cliente, Tipo, Marca, Falla, Estado, Comentario FROM Dispositivo";
 
                 //Lista para condiciones y parámetros:
-                var condiciones = new List<string>();
-                var parametros = new List<SQLiteParameter>();
+                var condiciones = new List<string>(); //Es una lista para guardar las condiciones WHERE que se aplicarán a la consulta SQL guarda lo que despues se forma en una cadena
+                var parametros = new List<SQLiteParameter>();//Es lista es para guardar parametros que se usarán en la consulta SQL es decir los valores que se asignaron en el filtro 
+                                                             
 
                 //Construir condiciones dinámicamente si hay filtros:
                 if (filtros != null)
@@ -56,29 +59,31 @@ namespace Gestor_De_Clientes
                     }
                     //Aca podemos seguir metiendo mas condiciones para el filtrado es bastante escalable esta forma de filtrar 
                 }
-                //Aca agregamos el WHERE si es que hay condiciones
+                //Aca agregamos el WHERE si es que hay condiciones. Se hace el ensamblado final de la consulta 
                 if(condiciones.Count > 0)//Si es distinto de 0 quiere decir que hay condiciones para agregar con WHERE  
                 {
-                    query += " WHERE " + string.Join(" AND ", condiciones);
+                    query += " WHERE " + string.Join(" AND ", condiciones);//String.Join("Separador",listaDeStrings) dejando una cadena WEHERE Estado = @Estado AND Tipo = @Tipo
                 }
 
 
                 //Aca ejecutamos la consulta:
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
-                {
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn)) //necesitamos el SQLiteCommand porque a diferencia de SQLiteConnection que se encarga de la conexion fisica, 
+                {                                                          //SQLiteCommand se encarga de ejecutar comando SQL o sea consultas 
+                                                                           //Se encargar de devolver resultados a través de ExecuteReader(), ExecuteScalar() o ExecuteNonQuery()
                     foreach (var param in parametros)
                     {
-                        cmd.Parameters.Add(param);
+                        cmd.Parameters.Add(param);//Esto se encargar de reemplazar cada @atributo con el valor como por ejemplo a @Estado lo remplaza con el valor de parametro es decir 
+                                                //por ejemplo "A reparar"
                     }
 
                     //Aca con el reader leemos los resultados
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader()) //Con cmd.ExcuteReader() se encarga de ejecutar la consulta y se encarga de devolver un lector de resultado
+                    {                                                      
+                        while (reader.Read())//Esto avanza a la siguiente fila de resultados (devuelve false cuando no hay más filas)
+                        {                   //Dentro de este while se procesa cada fila 
                             int idcliente = reader.GetInt32(1);
-                            Cliente cliente = clientes.FirstOrDefault(c => c.Id == idcliente);
-
+                            Cliente cliente = clientes.FirstOrDefault(c => c.Id == idcliente); //Aca se encarga de buscar al cliente en la lista, que corresponde con el dispositivo por id_cliente
+                                                                                                //para mas abajo asignarlo al atributo de su dispositivo
 
                             lista.Add(new Dispositivo
                             {//Le asignamos los valores a las propiedades
