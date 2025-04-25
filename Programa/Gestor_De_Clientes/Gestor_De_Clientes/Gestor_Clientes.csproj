@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteDB.cs" />
+    <Compile Include="ClienteFiltro.cs" />
     <Compile Include="Dispositivo.cs" />
     <Compile Include="DispositivoBD.cs" />
     <Compile Include="DispositivoFiltro.cs" />

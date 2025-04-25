@@ -54,6 +54,7 @@ namespace Gestor_De_Clientes
         private void Form1_Load(object sender, EventArgs e)//Cuando carga una de las cosas que hace es listar los dispositivos pendientes
         {
             DispositivoFiltro filtro = new DispositivoFiltro { Estado = "A reparar" };
+          
 
             List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
 
@@ -64,6 +65,11 @@ namespace Gestor_De_Clientes
                                                      //o al darle doble click diga mas datos sobre el dispositivo 
                                                      //Agregar funcionalidad de cambiar estado a reparado 
             }
+        }
+
+        private void Lpendientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

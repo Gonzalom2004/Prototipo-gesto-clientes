@@ -57,12 +57,13 @@ namespace Gestor_De_Clientes
                         condiciones.Add("Tipo = @Tipo");
                         parametros.Add(new SQLiteParameter("@Tipo", filtros.Tipo)); //Metemos la propiedad Tipo de la clase DispositivoFiltro
                     }
+                    
                     //Aca podemos seguir metiendo mas condiciones para el filtrado es bastante escalable esta forma de filtrar 
                 }
                 //Aca agregamos el WHERE si es que hay condiciones. Se hace el ensamblado final de la consulta 
                 if(condiciones.Count > 0)//Si es distinto de 0 quiere decir que hay condiciones para agregar con WHERE  
                 {
-                    query += " WHERE " + string.Join(" AND ", condiciones);//String.Join("Separador",listaDeStrings) dejando una cadena WEHERE Estado = @Estado AND Tipo = @Tipo
+                    query += " WHERE " + string.Join(" AND ", condiciones);//String.Join("Separador",listaDeStrings) dejando una cadena WHERE Estado = @Estado AND Tipo = @Tipo
                 }
 
 

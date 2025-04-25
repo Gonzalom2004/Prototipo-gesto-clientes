@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 
@@ -35,31 +36,67 @@ namespace Gestor_De_Clientes
        
         #region "Metodos" 
         //algunos tienen que ser metodos static para no tener que instanciar la clase
-        public static List<Cliente> ObtenerClientes() //Este metodo lo que hace es traer los datos de la base para poder instanciar los clientes otra vez y meterlos en la lista 
+        public static List<Cliente> ObtenerClientes(ClienteFiltro filtros = null) //Este metodo lo que hace es traer los datos de la base para poder instanciar los clientes otra vez y meterlos en la lista 
         {
             List<Cliente> lista = new List<Cliente>();
+
+
+
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
                 conn.Open();
                 string query = "SELECT ID, Nombre, Apellido, Telefono, FechaAlta FROM Cliente"; //Aca no probe si se puese usar SELECT * asterisco porque
                                                                                                 //mas abajo el reader usar los indices para seleccionar el atributo
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
-                using (SQLiteDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        lista.Add(new Cliente
-                        {
-                            Id = reader.GetInt32(0),
-                            Nombre = reader.GetString(1),
-                            Apellido = reader.GetString(2),
-                            Telefono = reader.GetString(3),
-                            FechaAlta = reader.GetString(4)
+                var condiciones = new List<string>();
+                var parametros = new List<SQLiteParameter>();
 
-                        });
+
+                if(filtros != null)
+                {
+                    if (!string.IsNullOrEmpty(filtros.Nombre))
+                    {
+                        condiciones.Add("Nombre LIKE @Nombre");
+                        parametros.Add(new SQLiteParameter("@Nombre", $"{filtros.Nombre}%"));
                     }
+                   
 
                 }
+                
+
+                if (condiciones.Count > 0)
+                {
+                    query += " WHERE " + string.Join(" AND ", condiciones);
+                    query += " ORDER BY LENGTH(Nombre)";
+                }
+
+
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+
+                    foreach (var param in parametros)
+                    {
+                        cmd.Parameters.Add(param);
+                    }
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            lista.Add(new Cliente
+                            {
+                                Id = reader.GetInt32(0),
+                                Nombre = reader.GetString(1),
+                                Apellido = reader.GetString(2),
+                                Telefono = reader.GetString(3),
+                                FechaAlta = reader.GetString(4)
+
+                            });
+                        }
+
+                    }
+                }
+             
 
             }
             return lista;
@@ -127,7 +164,7 @@ namespace Gestor_De_Clientes
 
                     using (var reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (reader.Read())//Si esto es true quiere decir que hay filas para leer
                         {
                             //Retornar true y el cliente existente 
                             return (true, new Cliente
@@ -143,8 +180,6 @@ namespace Gestor_De_Clientes
                 }
             }
             return (false, null); 
-
-
         }
 
         private static string  NormalizarTelefono(string telefono)// Es para eliminar cualquier caracter que no sea un numero

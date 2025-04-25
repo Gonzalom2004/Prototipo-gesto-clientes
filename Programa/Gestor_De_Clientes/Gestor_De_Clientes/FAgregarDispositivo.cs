@@ -62,9 +62,9 @@ namespace Gestor_De_Clientes
 
         private void Bagregar_Click(object sender, EventArgs e)
         {
-            if (DatosDispoCompletos() && DatosClienteCompletos()) // cambiar orden primero verificar capos de dispositivos
+            if (DatosDispoCompletos() && DatosClienteCompletos()) 
             { 
-                if (CHagregar.Checked)//Hay que verificar que el cliente ya existe para no agregarlo otra vez 
+                if (CHagregar.Checked)
                 {
                     var (existe, clienteExistente) = ClienteDB.VerificarClientePorTelefono(Ttelefono.Text);
                     if (existe)

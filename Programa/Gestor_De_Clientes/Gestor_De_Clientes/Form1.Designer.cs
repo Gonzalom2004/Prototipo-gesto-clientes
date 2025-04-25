@@ -96,6 +96,7 @@
             this.Lpendientes.Name = "Lpendientes";
             this.Lpendientes.Size = new System.Drawing.Size(312, 303);
             this.Lpendientes.TabIndex = 2;
+            this.Lpendientes.SelectedIndexChanged += new System.EventHandler(this.Lpendientes_SelectedIndexChanged);
             // 
             // Form1
             // 
