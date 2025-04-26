@@ -78,7 +78,7 @@ namespace Gestor_De_Clientes
             this._estado = _estado;
             this._comentario = _comentario;
             this._cliente = _cliente; 
-            this._fechaingreso = DateTime.Today.ToString();
+            this._fechaingreso = DateTime.Today.ToString("dd/MM/yyyy");
         }
         public Dispositivo(int _id, string _tipo, string _marca, string _falla, string _estado, string _comentario, Cliente _cliente)
         {
@@ -89,7 +89,7 @@ namespace Gestor_De_Clientes
             this._estado = _estado;//
             this._comentario = _comentario;
             this._cliente = _cliente;
-            this._fechaingreso = DateTime.Today.ToString();
+            this._fechaingreso = DateTime.Today.ToString("dd/MM/yyyy");
         }
         #endregion
 

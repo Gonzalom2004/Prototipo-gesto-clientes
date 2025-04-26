@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.ListaBuscar = new System.Windows.Forms.ListBox();
             this.BEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.CBestado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Tnombre = new System.Windows.Forms.TextBox();
+            this.listViewBuscar = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // button1
@@ -47,14 +47,6 @@
             this.button1.Text = "Mostrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ListaBuscar
-            // 
-            this.ListaBuscar.FormattingEnabled = true;
-            this.ListaBuscar.Location = new System.Drawing.Point(35, 38);
-            this.ListaBuscar.Name = "ListaBuscar";
-            this.ListaBuscar.Size = new System.Drawing.Size(720, 342);
-            this.ListaBuscar.TabIndex = 1;
             // 
             // BEliminar
             // 
@@ -111,18 +103,27 @@
             this.Tnombre.Size = new System.Drawing.Size(100, 20);
             this.Tnombre.TabIndex = 7;
             // 
+            // listViewBuscar
+            // 
+            this.listViewBuscar.HideSelection = false;
+            this.listViewBuscar.Location = new System.Drawing.Point(25, 41);
+            this.listViewBuscar.Name = "listViewBuscar";
+            this.listViewBuscar.Size = new System.Drawing.Size(749, 339);
+            this.listViewBuscar.TabIndex = 8;
+            this.listViewBuscar.UseCompatibleStateImageBehavior = false;
+            // 
             // FBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listViewBuscar);
             this.Controls.Add(this.Tnombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CBestado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BEliminar);
-            this.Controls.Add(this.ListaBuscar);
             this.Controls.Add(this.button1);
             this.Name = "FBuscar";
             this.Text = "Buscar";
@@ -135,12 +136,12 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox ListaBuscar;
         private System.Windows.Forms.Button BEliminar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CBestado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Tnombre;
+        private System.Windows.Forms.ListView listViewBuscar;
     }
 }

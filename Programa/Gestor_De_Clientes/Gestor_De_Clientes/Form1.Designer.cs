@@ -34,7 +34,7 @@
             this.dispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.Lpendientes = new System.Windows.Forms.ListBox();
+            this.listViewPendientes = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,21 +89,21 @@
             this.label1.Text = "Reparaciónes Pendientes:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Lpendientes
+            // listViewPendientes
             // 
-            this.Lpendientes.FormattingEnabled = true;
-            this.Lpendientes.Location = new System.Drawing.Point(25, 82);
-            this.Lpendientes.Name = "Lpendientes";
-            this.Lpendientes.Size = new System.Drawing.Size(312, 303);
-            this.Lpendientes.TabIndex = 2;
-            this.Lpendientes.SelectedIndexChanged += new System.EventHandler(this.Lpendientes_SelectedIndexChanged);
+            this.listViewPendientes.HideSelection = false;
+            this.listViewPendientes.Location = new System.Drawing.Point(12, 90);
+            this.listViewPendientes.Name = "listViewPendientes";
+            this.listViewPendientes.Size = new System.Drawing.Size(554, 303);
+            this.listViewPendientes.TabIndex = 3;
+            this.listViewPendientes.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 435);
-            this.Controls.Add(this.Lpendientes);
+            this.Controls.Add(this.listViewPendientes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -125,7 +125,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispositivoToolStripMenuItem;
-        private System.Windows.Forms.ListBox Lpendientes;
+        private System.Windows.Forms.ListView listViewPendientes;
     }
 }
 

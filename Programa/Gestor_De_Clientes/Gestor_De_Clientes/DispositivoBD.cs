@@ -37,7 +37,7 @@ namespace Gestor_De_Clientes
                                                                                     //Es para una ejecución segura 
                 conn.Open();//Se abre la conexión fisica con la base de datos
                 
-                string query = "SELECT ID, ID_Cliente, Tipo, Marca, Falla, Estado, Comentario FROM Dispositivo";
+                string query = "SELECT ID, ID_Cliente, Tipo, Marca, Falla, Estado, Comentario, FechaIngreso FROM Dispositivo";
 
                 //Lista para condiciones y parámetros:
                 var condiciones = new List<string>(); //Es una lista para guardar las condiciones WHERE que se aplicarán a la consulta SQL guarda lo que despues se forma en una cadena
@@ -94,7 +94,8 @@ namespace Gestor_De_Clientes
                                 Falla = reader.GetString(4),
                                 Estado = reader.GetString(5),
                                 Comentario = reader.GetString(6),
-                                Cliente = cliente
+                                Cliente = cliente,
+                                FechaIngreso = reader.GetString(7),
                             });
                         }
                     }
