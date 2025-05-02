@@ -97,10 +97,185 @@ namespace Gestor_De_Clientes
             {
                 columna.Width = -2; // Autoajustar al contenido
             }
+
+
+
         }
         private void Lpendientes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RBdispositivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if(RBdispositivo.Checked)
+            {
+                GBDispositivo.Visible = true;
+
+                //Lid_cliente.Visible = true;
+                //Tid_cliente.Visible = true;
+                //Ltipo.Visible = true;
+                //Ttipo.Visible = true;
+                //Lmodelo_marca.Visible = true;
+                //Tmodelo.Visible = true;
+                //Lfalla.Visible = true;
+                //Tfalla.Visible = true;
+                //Lestado.Visible = true;
+                //CBestado.Visible = true;
+                //Lcomentario.Visible = true;
+
+                
+            }
+            else
+            {
+
+                GBDispositivo.Visible = false;
+                //Lid_cliente.Visible = false;
+                //Tid_cliente.Visible = false ;
+                //Ltipo.Visible = false ;
+                //Ttipo.Visible = false ;
+                //Lmodelo_marca.Visible = true;
+                //Tmodelo.Visible = true;
+                //Lfalla.Visible = true;
+                //Tfalla.Visible = true;
+                //Lestado.Visible = true;
+                //CBestado.Visible = true;
+                //Lcomentario.Visible = true;
+
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RBcliente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RBcliente.Checked)
+            {
+                GBfiltros_cliente.Visible = true;
+            }
+            else
+            {
+                GBfiltros_cliente.Visible = false;
+            }
+        }
+
+        private void listViewPendientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Bmostar_Click(object sender, EventArgs e)
+        {
+
+            //fijarse si es mejor meter los filtros en variables para luego usarlos en ortas partes
+            //como pasa aca abajo uso "A reparar" dos veces lo cual puede dar error. Usar variables 
+            //Para que no haya posibles errores al reescribir el filtro 
+            LVbuscador.Items.Clear();
+            if (CBestado.Text == "A reparar")
+            {
+                DispositivoFiltro filtro = new DispositivoFiltro { Estado = "A reparar" };
+
+                List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
+
+
+                foreach (Dispositivo D in pendientes)
+                {
+                    LVbuscador.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
+                                                        //o al darle doble click diga mas datos sobre el dispositivo 
+                                                        //Agregar funcionalidad de cambiar estado a reparado 
+                }
+            }
+            else if (CBestado.Text == "Reparado")
+            {
+                DispositivoFiltro filtro = new DispositivoFiltro { Estado = "Reparado" };
+
+
+                List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
+
+
+                foreach (Dispositivo D in pendientes)
+                {
+                    LVbuscador.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
+                                                        //o al darle doble click diga mas datos sobre el dispositivo 
+                                                        //Agregar funcionalidad de cambiar estado a reparado 
+                }
+            }
+            else if (Tnombre.Text != "")
+            {
+                ClienteFiltro filtro = new ClienteFiltro { Nombre = Tnombre.Text };
+                List<Cliente> clientes = ClienteDB.ObtenerClientes(filtro);
+                foreach (Cliente c in clientes)
+                {
+                    LVbuscador.Items.Add(c.ToString());
+                }
+            }
+            else
+            {
+                listaTodo();// Cree este metodo mas arriba porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
+                //recordar que es mostrar/listar todo sin filtar ni nada 
+            }
+        }
+
+        private void listaTodo() // Cree este metodo porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
+                                 //recordar que es mostrar/listar todo sin filtar ni nada 
+        {
+
+            LVbuscador.Items.Clear();
+            LVbuscador.Columns.Clear();
+            LVbuscador.View = View.Details;
+            LVbuscador.GridLines = true;
+            LVbuscador.FullRowSelect = true;
+            LVbuscador.Columns.Add("ID", 50);
+            LVbuscador.Columns.Add("Cliente", 150);
+            LVbuscador.Columns.Add("Teléfono", 100);
+            LVbuscador.Columns.Add("Tipo", 100);
+            LVbuscador.Columns.Add("Marca", 100);
+            LVbuscador.Columns.Add("Falla", 200);
+            LVbuscador.Columns.Add("Estado", 80);
+            LVbuscador.Columns.Add("Fecha Ingreso", 100);
+            LVbuscador.Columns.Add("Comentario", 200);
+
+
+            List<Dispositivo> dispositivos = DispositivoBD.ObtenerDispositivos();
+
+            foreach (Dispositivo dispositivo in dispositivos)
+            {
+                ListViewItem item = new ListViewItem(dispositivo.ID.ToString());
+
+
+                item.SubItems.Add(dispositivo.Cliente != null ? dispositivo.Cliente.Nombre : "Sin cliente");
+                item.SubItems.Add(dispositivo.Cliente != null ? dispositivo.Cliente.Telefono : "N/D");
+                item.SubItems.Add(dispositivo.Tipo ?? "N/D");
+                item.SubItems.Add(dispositivo.Marca ?? "N/D");
+                item.SubItems.Add(dispositivo.Falla ?? "Sin descripción");
+                item.SubItems.Add(dispositivo.Estado ?? "N/D");
+                item.SubItems.Add(dispositivo.FechaIngreso ?? "N/D");
+                item.SubItems.Add(dispositivo.Comentario ?? "Sin comentarios");
+
+                // Guardar el objeto completo para referencia, sirve para editar y eliminar desp
+                item.Tag = dispositivo;
+
+                LVbuscador.Items.Add(item);
+            }
+
+
+            foreach (ColumnHeader column in LVbuscador.Columns)// Autoajustar columnas al contenido
+            {
+                column.Width = -2;
+            }
         }
     }
 }

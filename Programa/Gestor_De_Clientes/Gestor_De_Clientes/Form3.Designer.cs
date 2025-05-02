@@ -40,7 +40,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(151, 386);
+            this.button1.Location = new System.Drawing.Point(86, 449);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // BEliminar
             // 
-            this.BEliminar.Location = new System.Drawing.Point(252, 386);
+            this.BEliminar.Location = new System.Drawing.Point(242, 449);
             this.BEliminar.Name = "BEliminar";
             this.BEliminar.Size = new System.Drawing.Size(75, 23);
             this.BEliminar.TabIndex = 2;
@@ -61,7 +61,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 14);
+            this.label1.Location = new System.Drawing.Point(16, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 3;
@@ -73,7 +73,7 @@
             this.CBestado.Items.AddRange(new object[] {
             "A reparar",
             "Reparado"});
-            this.CBestado.Location = new System.Drawing.Point(105, 14);
+            this.CBestado.Location = new System.Drawing.Point(109, 77);
             this.CBestado.Name = "CBestado";
             this.CBestado.Size = new System.Drawing.Size(121, 21);
             this.CBestado.TabIndex = 4;
@@ -81,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 17);
+            this.label2.Location = new System.Drawing.Point(63, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 5;
@@ -90,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(249, 17);
+            this.label3.Location = new System.Drawing.Point(253, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 6;
@@ -98,7 +98,7 @@
             // 
             // Tnombre
             // 
-            this.Tnombre.Location = new System.Drawing.Point(300, 14);
+            this.Tnombre.Location = new System.Drawing.Point(304, 77);
             this.Tnombre.Name = "Tnombre";
             this.Tnombre.Size = new System.Drawing.Size(100, 20);
             this.Tnombre.TabIndex = 7;
@@ -106,7 +106,7 @@
             // listViewBuscar
             // 
             this.listViewBuscar.HideSelection = false;
-            this.listViewBuscar.Location = new System.Drawing.Point(25, 41);
+            this.listViewBuscar.Location = new System.Drawing.Point(15, 104);
             this.listViewBuscar.Name = "listViewBuscar";
             this.listViewBuscar.Size = new System.Drawing.Size(749, 339);
             this.listViewBuscar.TabIndex = 8;
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1154, 561);
             this.Controls.Add(this.listViewBuscar);
             this.Controls.Add(this.Tnombre);
             this.Controls.Add(this.label3);

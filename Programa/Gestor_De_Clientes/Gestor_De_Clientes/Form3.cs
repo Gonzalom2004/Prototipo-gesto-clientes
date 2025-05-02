@@ -76,7 +76,7 @@ namespace Gestor_De_Clientes
         //falta acomodar las columnas para cuando se filtra
         //falta acomodar las columnas para cuando se filtra
         //falta acomodar las columnas para cuando se filtra
-        private void button1_Click(object sender, EventArgs e)//Boton para mostrar todo lo de la base de datos sin filtrar
+        private void button1_Click(object sender, EventArgs e)
         {
 
             //Falta poder filtar con mucho filtros a la vez hicimos pruebas pero con filtros separados 
