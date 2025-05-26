@@ -58,48 +58,54 @@ namespace Gestor_De_Clientes
                         parametros.Add(new SQLiteParameter("@Tipo", filtros.Tipo)); //Metemos la propiedad Tipo de la clase DispositivoFiltro
                     }
                     
+                    
                     //Aca podemos seguir metiendo mas condiciones para el filtrado es bastante escalable esta forma de filtrar 
                 }
                 //Aca agregamos el WHERE si es que hay condiciones. Se hace el ensamblado final de la consulta 
-                if(condiciones.Count > 0)//Si es distinto de 0 quiere decir que hay condiciones para agregar con WHERE  
+                if(condiciones.Count > 0 && filtros.Limite > 0)//Si es distinto de 0 quiere decir que hay condiciones para agregar con WHERE  
+                {
+                    query += " WHERE " + string.Join(" AND ", condiciones);//String.Join("Separador",listaDeStrings) dejando una cadena WHERE Estado = @Estado AND Tipo = @Tipo
+                    query += $" LIMIT {filtros.Limite}";
+                }
+                else if (condiciones.Count > 0)
                 {
                     query += " WHERE " + string.Join(" AND ", condiciones);//String.Join("Separador",listaDeStrings) dejando una cadena WHERE Estado = @Estado AND Tipo = @Tipo
                 }
 
 
-                //Aca ejecutamos la consulta:
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn)) //necesitamos el SQLiteCommand porque a diferencia de SQLiteConnection que se encarga de la conexion fisica, 
-                {                                                          //SQLiteCommand se encarga de ejecutar comando SQL o sea consultas 
-                                                                           //Se encargar de devolver resultados a través de ExecuteReader(), ExecuteScalar() o ExecuteNonQuery()
-                    foreach (var param in parametros)
-                    {
-                        cmd.Parameters.Add(param);//Esto se encargar de reemplazar cada @atributo con el valor como por ejemplo a @Estado lo remplaza con el valor de parametro es decir 
-                                                //por ejemplo "A reparar"
-                    }
+                    //Aca ejecutamos la consulta:
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, conn)) //necesitamos el SQLiteCommand porque a diferencia de SQLiteConnection que se encarga de la conexion fisica, 
+                    {                                                          //SQLiteCommand se encarga de ejecutar comando SQL o sea consultas 
+                                                                               //Se encargar de devolver resultados a través de ExecuteReader(), ExecuteScalar() o ExecuteNonQuery()
+                        foreach (var param in parametros)
+                        {
+                            cmd.Parameters.Add(param);//Esto se encargar de reemplazar cada @atributo con el valor como por ejemplo a @Estado lo remplaza con el valor de parametro es decir 
+                                                      //por ejemplo "A reparar"
+                        }
 
-                    //Aca con el reader leemos los resultados
-                    using (SQLiteDataReader reader = cmd.ExecuteReader()) //Con cmd.ExcuteReader() se encarga de ejecutar la consulta y se encarga de devolver un lector de resultado
-                    {                                                      
-                        while (reader.Read())//Esto avanza a la siguiente fila de resultados (devuelve false cuando no hay más filas)
-                        {                   //Dentro de este while se procesa cada fila 
-                            int idcliente = reader.GetInt32(1);
-                            Cliente cliente = clientes.FirstOrDefault(c => c.Id == idcliente); //Aca se encarga de buscar al cliente en la lista, que corresponde con el dispositivo por id_cliente
-                                                                                                //para mas abajo asignarlo al atributo de su dispositivo
+                        //Aca con el reader leemos los resultados
+                        using (SQLiteDataReader reader = cmd.ExecuteReader()) //Con cmd.ExcuteReader() se encarga de ejecutar la consulta y se encarga de devolver un lector de resultado
+                        {
+                            while (reader.Read())//Esto avanza a la siguiente fila de resultados (devuelve false cuando no hay más filas)
+                            {                   //Dentro de este while se procesa cada fila 
+                                int idcliente = reader.GetInt32(1);
+                                Cliente cliente = clientes.FirstOrDefault(c => c.Id == idcliente); //Aca se encarga de buscar al cliente en la lista, que corresponde con el dispositivo por id_cliente
+                                                                                                   //para mas abajo asignarlo al atributo de su dispositivo
 
-                            lista.Add(new Dispositivo
-                            {//Le asignamos los valores a las propiedades
-                                ID = reader.GetInt32(0),
-                                Tipo = reader.GetString(2),
-                                Marca = reader.GetString(3),
-                                Falla = reader.GetString(4),
-                                Estado = reader.GetString(5),
-                                Comentario = reader.GetString(6),
-                                Cliente = cliente,
-                                FechaIngreso = reader.GetString(7),
-                            });
+                                lista.Add(new Dispositivo
+                                {//Le asignamos los valores a las propiedades
+                                    ID = reader.GetInt32(0),
+                                    Tipo = reader.GetString(2),
+                                    Marca = reader.GetString(3),
+                                    Falla = reader.GetString(4),
+                                    Estado = reader.GetString(5),
+                                    Comentario = reader.GetString(6),
+                                    Cliente = cliente,
+                                    FechaIngreso = reader.GetString(7),
+                                });
+                            }
                         }
                     }
-                }
             }
                
             return lista;
@@ -109,7 +115,7 @@ namespace Gestor_De_Clientes
         {
             using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
             {
-                conn.Open();
+                conn.Open();//implementar try catch 
                 string query = "DELETE FROM Dispositivo WHERE id = @id";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", id);

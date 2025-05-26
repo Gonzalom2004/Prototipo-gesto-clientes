@@ -8,3 +8,8 @@ Borrar Cliente y disposito();
 filtro por cliente();
 filtrar por estado();//para ver el estado de cuales son los que tengo pendientes;
 filtrar por fecha(); //cliente como dispositivo;
+
+
+Mejoras: 
+- Intentar usar un arreglo (condiciones/filtros) para pasar los filtros en ves de usar la clase ClienteFiltro capaz que es mejor
+- Intentar usar la conexión a la base de datos pero con inyencción de dependencia o con herencia como me dijo nacho el profe de consulta

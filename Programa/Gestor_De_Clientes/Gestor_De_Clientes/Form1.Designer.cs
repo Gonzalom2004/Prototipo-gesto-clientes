@@ -33,50 +33,55 @@
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.listViewPendientes = new System.Windows.Forms.ListView();
             this.LVbuscador = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.RBdispositivo = new System.Windows.Forms.RadioButton();
             this.RBcliente = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.Bmostar = new System.Windows.Forms.Button();
-            this.Belminar = new System.Windows.Forms.Button();
-            this.Bmodificar = new System.Windows.Forms.Button();
-            this.Lid = new System.Windows.Forms.Label();
-            this.Tid_Dispositivo = new System.Windows.Forms.TextBox();
-            this.Lid_cliente = new System.Windows.Forms.Label();
-            this.Tid_cliente = new System.Windows.Forms.TextBox();
-            this.Ltipo = new System.Windows.Forms.Label();
-            this.Ttipo = new System.Windows.Forms.TextBox();
-            this.Lmodelo_marca = new System.Windows.Forms.Label();
-            this.Tmodelo = new System.Windows.Forms.TextBox();
-            this.Lfalla = new System.Windows.Forms.Label();
-            this.Tfalla = new System.Windows.Forms.TextBox();
-            this.Lestado = new System.Windows.Forms.Label();
-            this.CBestado = new System.Windows.Forms.ComboBox();
-            this.Lcomentario = new System.Windows.Forms.Label();
-            this.Tcomentario = new System.Windows.Forms.TextBox();
-            this.Lfechaingreso = new System.Windows.Forms.Label();
-            this.DTPfecha_ingreso_Dispositivo = new System.Windows.Forms.DateTimePicker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.GBDispositivo = new System.Windows.Forms.GroupBox();
             this.GBfiltros_cliente = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Ttelefono = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Tapellido = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Tnombre = new System.Windows.Forms.TextBox();
+            this.CBfecha_alta = new System.Windows.Forms.CheckBox();
+            this.DTPfecha_alta = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Tid_clientefiltro = new System.Windows.Forms.TextBox();
+            this.Tnombre = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Tapellido = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Ttelefono = new System.Windows.Forms.TextBox();
+            this.GBDispositivo = new System.Windows.Forms.GroupBox();
+            this.DTPfecha_ingreso_Dispositivo = new System.Windows.Forms.DateTimePicker();
+            this.Lid_cliente = new System.Windows.Forms.Label();
+            this.Lfechaingreso = new System.Windows.Forms.Label();
+            this.Lid = new System.Windows.Forms.Label();
+            this.Tcomentario = new System.Windows.Forms.TextBox();
+            this.Tid_Dispositivo = new System.Windows.Forms.TextBox();
+            this.Lcomentario = new System.Windows.Forms.Label();
+            this.Tid_cliente = new System.Windows.Forms.TextBox();
+            this.CBestado = new System.Windows.Forms.ComboBox();
+            this.Ltipo = new System.Windows.Forms.Label();
+            this.Lestado = new System.Windows.Forms.Label();
+            this.Ttipo = new System.Windows.Forms.TextBox();
+            this.Tfalla = new System.Windows.Forms.TextBox();
+            this.Lmodelo_marca = new System.Windows.Forms.Label();
+            this.Lfalla = new System.Windows.Forms.Label();
+            this.Tmodelo = new System.Windows.Forms.TextBox();
+            this.Bmodificar = new System.Windows.Forms.Button();
+            this.Belminar = new System.Windows.Forms.Button();
+            this.Bmostar = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BMostrarCantPendiente = new System.Windows.Forms.Button();
+            this.NUDCantPendientes = new System.Windows.Forms.NumericUpDown();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.GBDispositivo.SuspendLayout();
             this.GBfiltros_cliente.SuspendLayout();
+            this.GBDispositivo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDCantPendientes)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -120,25 +125,16 @@
             this.buscarToolStripMenuItem.Text = "Buscar";
             this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Reparaciónes Pendientes:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // listViewPendientes
             // 
             this.listViewPendientes.HideSelection = false;
-            this.listViewPendientes.Location = new System.Drawing.Point(12, 111);
+            this.listViewPendientes.Location = new System.Drawing.Point(23, 28);
             this.listViewPendientes.Name = "listViewPendientes";
-            this.listViewPendientes.Size = new System.Drawing.Size(554, 303);
+            this.listViewPendientes.Size = new System.Drawing.Size(554, 380);
             this.listViewPendientes.TabIndex = 3;
             this.listViewPendientes.UseCompatibleStateImageBehavior = false;
             this.listViewPendientes.SelectedIndexChanged += new System.EventHandler(this.listViewPendientes_SelectedIndexChanged);
+            this.listViewPendientes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewPendientes_MouseDoubleClick);
             // 
             // LVbuscador
             // 
@@ -195,173 +191,114 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.RBcliente);
             this.groupBox1.Controls.Add(this.RBdispositivo);
-            this.groupBox1.Location = new System.Drawing.Point(633, 27);
+            this.groupBox1.Location = new System.Drawing.Point(652, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 481);
+            this.groupBox1.Size = new System.Drawing.Size(607, 494);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscador:";
             // 
-            // Bmostar
+            // GBfiltros_cliente
             // 
-            this.Bmostar.Location = new System.Drawing.Point(359, 418);
-            this.Bmostar.Name = "Bmostar";
-            this.Bmostar.Size = new System.Drawing.Size(75, 23);
-            this.Bmostar.TabIndex = 9;
-            this.Bmostar.Text = "Mostrar";
-            this.Bmostar.UseVisualStyleBackColor = true;
-            this.Bmostar.Click += new System.EventHandler(this.Bmostar_Click);
+            this.GBfiltros_cliente.Controls.Add(this.CBfecha_alta);
+            this.GBfiltros_cliente.Controls.Add(this.DTPfecha_alta);
+            this.GBfiltros_cliente.Controls.Add(this.label3);
+            this.GBfiltros_cliente.Controls.Add(this.label5);
+            this.GBfiltros_cliente.Controls.Add(this.Tid_clientefiltro);
+            this.GBfiltros_cliente.Controls.Add(this.Tnombre);
+            this.GBfiltros_cliente.Controls.Add(this.label7);
+            this.GBfiltros_cliente.Controls.Add(this.Tapellido);
+            this.GBfiltros_cliente.Controls.Add(this.label9);
+            this.GBfiltros_cliente.Controls.Add(this.Ttelefono);
+            this.GBfiltros_cliente.Location = new System.Drawing.Point(6, 42);
+            this.GBfiltros_cliente.Name = "GBfiltros_cliente";
+            this.GBfiltros_cliente.Size = new System.Drawing.Size(595, 67);
+            this.GBfiltros_cliente.TabIndex = 27;
+            this.GBfiltros_cliente.TabStop = false;
+            this.GBfiltros_cliente.Text = "Filtros:";
             // 
-            // Belminar
+            // CBfecha_alta
             // 
-            this.Belminar.Location = new System.Drawing.Point(445, 418);
-            this.Belminar.Name = "Belminar";
-            this.Belminar.Size = new System.Drawing.Size(75, 23);
-            this.Belminar.TabIndex = 9;
-            this.Belminar.Text = "Eliminar";
-            this.Belminar.UseVisualStyleBackColor = true;
+            this.CBfecha_alta.AutoSize = true;
+            this.CBfecha_alta.Location = new System.Drawing.Point(394, 13);
+            this.CBfecha_alta.Name = "CBfecha_alta";
+            this.CBfecha_alta.Size = new System.Drawing.Size(92, 17);
+            this.CBfecha_alta.TabIndex = 27;
+            this.CBfecha_alta.Text = "Fecha de Alta";
+            this.CBfecha_alta.UseVisualStyleBackColor = true;
+            this.CBfecha_alta.CheckedChanged += new System.EventHandler(this.CBfecha_alta_CheckedChanged);
             // 
-            // Bmodificar
+            // DTPfecha_alta
             // 
-            this.Bmodificar.Location = new System.Drawing.Point(526, 418);
-            this.Bmodificar.Name = "Bmodificar";
-            this.Bmodificar.Size = new System.Drawing.Size(75, 23);
-            this.Bmodificar.TabIndex = 10;
-            this.Bmodificar.Text = "Modificar";
-            this.Bmodificar.UseVisualStyleBackColor = true;
+            this.DTPfecha_alta.Location = new System.Drawing.Point(394, 36);
+            this.DTPfecha_alta.Name = "DTPfecha_alta";
+            this.DTPfecha_alta.Size = new System.Drawing.Size(148, 20);
+            this.DTPfecha_alta.TabIndex = 26;
             // 
-            // Lid
+            // label3
             // 
-            this.Lid.AutoSize = true;
-            this.Lid.Location = new System.Drawing.Point(19, 16);
-            this.Lid.Name = "Lid";
-            this.Lid.Size = new System.Drawing.Size(21, 13);
-            this.Lid.TabIndex = 11;
-            this.Lid.Text = "ID:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(74, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Nombre:";
             // 
-            // Tid_Dispositivo
+            // label5
             // 
-            this.Tid_Dispositivo.Location = new System.Drawing.Point(46, 13);
-            this.Tid_Dispositivo.Name = "Tid_Dispositivo";
-            this.Tid_Dispositivo.Size = new System.Drawing.Size(22, 20);
-            this.Tid_Dispositivo.TabIndex = 12;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(21, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "ID:";
             // 
-            // Lid_cliente
+            // Tid_clientefiltro
             // 
-            this.Lid_cliente.AutoSize = true;
-            this.Lid_cliente.Location = new System.Drawing.Point(74, 16);
-            this.Lid_cliente.Name = "Lid_cliente";
-            this.Lid_cliente.Size = new System.Drawing.Size(59, 13);
-            this.Lid_cliente.TabIndex = 13;
-            this.Lid_cliente.Text = "ID_Cliente:";
+            this.Tid_clientefiltro.Location = new System.Drawing.Point(46, 36);
+            this.Tid_clientefiltro.Name = "Tid_clientefiltro";
+            this.Tid_clientefiltro.Size = new System.Drawing.Size(22, 20);
+            this.Tid_clientefiltro.TabIndex = 12;
             // 
-            // Tid_cliente
+            // Tnombre
             // 
-            this.Tid_cliente.Location = new System.Drawing.Point(136, 13);
-            this.Tid_cliente.Name = "Tid_cliente";
-            this.Tid_cliente.Size = new System.Drawing.Size(39, 20);
-            this.Tid_cliente.TabIndex = 14;
-            this.Tid_cliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Tnombre.Location = new System.Drawing.Point(121, 36);
+            this.Tnombre.Name = "Tnombre";
+            this.Tnombre.Size = new System.Drawing.Size(39, 20);
+            this.Tnombre.TabIndex = 14;
+            this.Tnombre.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // Ltipo
+            // label7
             // 
-            this.Ltipo.AutoSize = true;
-            this.Ltipo.Location = new System.Drawing.Point(181, 16);
-            this.Ltipo.Name = "Ltipo";
-            this.Ltipo.Size = new System.Drawing.Size(31, 13);
-            this.Ltipo.TabIndex = 15;
-            this.Ltipo.Text = "Tipo:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(173, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Apellido:";
             // 
-            // Ttipo
+            // Tapellido
             // 
-            this.Ttipo.Location = new System.Drawing.Point(217, 13);
-            this.Ttipo.Name = "Ttipo";
-            this.Ttipo.Size = new System.Drawing.Size(39, 20);
-            this.Ttipo.TabIndex = 16;
+            this.Tapellido.Location = new System.Drawing.Point(226, 36);
+            this.Tapellido.Name = "Tapellido";
+            this.Tapellido.Size = new System.Drawing.Size(39, 20);
+            this.Tapellido.TabIndex = 16;
             // 
-            // Lmodelo_marca
+            // label9
             // 
-            this.Lmodelo_marca.AutoSize = true;
-            this.Lmodelo_marca.Location = new System.Drawing.Point(271, 16);
-            this.Lmodelo_marca.Name = "Lmodelo_marca";
-            this.Lmodelo_marca.Size = new System.Drawing.Size(80, 13);
-            this.Lmodelo_marca.TabIndex = 17;
-            this.Lmodelo_marca.Text = "Modelo/Marca:";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(271, 39);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Telefono:";
             // 
-            // Tmodelo
+            // Ttelefono
             // 
-            this.Tmodelo.Location = new System.Drawing.Point(357, 13);
-            this.Tmodelo.Name = "Tmodelo";
-            this.Tmodelo.Size = new System.Drawing.Size(39, 20);
-            this.Tmodelo.TabIndex = 18;
-            // 
-            // Lfalla
-            // 
-            this.Lfalla.AutoSize = true;
-            this.Lfalla.Location = new System.Drawing.Point(19, 46);
-            this.Lfalla.Name = "Lfalla";
-            this.Lfalla.Size = new System.Drawing.Size(32, 13);
-            this.Lfalla.TabIndex = 19;
-            this.Lfalla.Text = "Falla:";
-            // 
-            // Tfalla
-            // 
-            this.Tfalla.Location = new System.Drawing.Point(57, 39);
-            this.Tfalla.Name = "Tfalla";
-            this.Tfalla.Size = new System.Drawing.Size(76, 20);
-            this.Tfalla.TabIndex = 20;
-            // 
-            // Lestado
-            // 
-            this.Lestado.AutoSize = true;
-            this.Lestado.Location = new System.Drawing.Point(153, 46);
-            this.Lestado.Name = "Lestado";
-            this.Lestado.Size = new System.Drawing.Size(43, 13);
-            this.Lestado.TabIndex = 21;
-            this.Lestado.Text = "Estado:";
-            // 
-            // CBestado
-            // 
-            this.CBestado.FormattingEnabled = true;
-            this.CBestado.Items.AddRange(new object[] {
-            "A reparar",
-            "Reparado"});
-            this.CBestado.Location = new System.Drawing.Point(202, 41);
-            this.CBestado.Name = "CBestado";
-            this.CBestado.Size = new System.Drawing.Size(79, 21);
-            this.CBestado.TabIndex = 22;
-            // 
-            // Lcomentario
-            // 
-            this.Lcomentario.AutoSize = true;
-            this.Lcomentario.Location = new System.Drawing.Point(296, 46);
-            this.Lcomentario.Name = "Lcomentario";
-            this.Lcomentario.Size = new System.Drawing.Size(63, 13);
-            this.Lcomentario.TabIndex = 23;
-            this.Lcomentario.Text = "Comentario:";
-            // 
-            // Tcomentario
-            // 
-            this.Tcomentario.Location = new System.Drawing.Point(357, 39);
-            this.Tcomentario.Name = "Tcomentario";
-            this.Tcomentario.Size = new System.Drawing.Size(59, 20);
-            this.Tcomentario.TabIndex = 24;
-            // 
-            // Lfechaingreso
-            // 
-            this.Lfechaingreso.AutoSize = true;
-            this.Lfechaingreso.Location = new System.Drawing.Point(429, 16);
-            this.Lfechaingreso.Name = "Lfechaingreso";
-            this.Lfechaingreso.Size = new System.Drawing.Size(92, 13);
-            this.Lfechaingreso.TabIndex = 25;
-            this.Lfechaingreso.Text = "Fecha de ingreso:";
-            // 
-            // DTPfecha_ingreso_Dispositivo
-            // 
-            this.DTPfecha_ingreso_Dispositivo.Location = new System.Drawing.Point(432, 36);
-            this.DTPfecha_ingreso_Dispositivo.Name = "DTPfecha_ingreso_Dispositivo";
-            this.DTPfecha_ingreso_Dispositivo.Size = new System.Drawing.Size(148, 20);
-            this.DTPfecha_ingreso_Dispositivo.TabIndex = 26;
+            this.Ttelefono.Location = new System.Drawing.Point(329, 36);
+            this.Ttelefono.Name = "Ttelefono";
+            this.Ttelefono.Size = new System.Drawing.Size(39, 20);
+            this.Ttelefono.TabIndex = 18;
             // 
             // GBDispositivo
             // 
@@ -388,105 +325,217 @@
             this.GBDispositivo.TabStop = false;
             this.GBDispositivo.Text = "Filtros:";
             // 
-            // GBfiltros_cliente
+            // DTPfecha_ingreso_Dispositivo
             // 
-            this.GBfiltros_cliente.Controls.Add(this.dateTimePicker1);
-            this.GBfiltros_cliente.Controls.Add(this.label3);
-            this.GBfiltros_cliente.Controls.Add(this.label4);
-            this.GBfiltros_cliente.Controls.Add(this.label5);
-            this.GBfiltros_cliente.Controls.Add(this.textBox2);
-            this.GBfiltros_cliente.Controls.Add(this.Tnombre);
-            this.GBfiltros_cliente.Controls.Add(this.label7);
-            this.GBfiltros_cliente.Controls.Add(this.Tapellido);
-            this.GBfiltros_cliente.Controls.Add(this.label9);
-            this.GBfiltros_cliente.Controls.Add(this.Ttelefono);
-            this.GBfiltros_cliente.Location = new System.Drawing.Point(6, 42);
-            this.GBfiltros_cliente.Name = "GBfiltros_cliente";
-            this.GBfiltros_cliente.Size = new System.Drawing.Size(595, 67);
-            this.GBfiltros_cliente.TabIndex = 27;
-            this.GBfiltros_cliente.TabStop = false;
-            this.GBfiltros_cliente.Text = "Filtros:";
+            this.DTPfecha_ingreso_Dispositivo.Location = new System.Drawing.Point(432, 36);
+            this.DTPfecha_ingreso_Dispositivo.Name = "DTPfecha_ingreso_Dispositivo";
+            this.DTPfecha_ingreso_Dispositivo.Size = new System.Drawing.Size(148, 20);
+            this.DTPfecha_ingreso_Dispositivo.TabIndex = 26;
             // 
-            // dateTimePicker1
+            // Lid_cliente
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(394, 36);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(148, 20);
-            this.dateTimePicker1.TabIndex = 26;
+            this.Lid_cliente.AutoSize = true;
+            this.Lid_cliente.Location = new System.Drawing.Point(74, 16);
+            this.Lid_cliente.Name = "Lid_cliente";
+            this.Lid_cliente.Size = new System.Drawing.Size(59, 13);
+            this.Lid_cliente.TabIndex = 13;
+            this.Lid_cliente.Text = "ID_Cliente:";
+            // 
+            // Lfechaingreso
+            // 
+            this.Lfechaingreso.AutoSize = true;
+            this.Lfechaingreso.Location = new System.Drawing.Point(429, 16);
+            this.Lfechaingreso.Name = "Lfechaingreso";
+            this.Lfechaingreso.Size = new System.Drawing.Size(92, 13);
+            this.Lfechaingreso.TabIndex = 25;
+            this.Lfechaingreso.Text = "Fecha de ingreso:";
+            // 
+            // Lid
+            // 
+            this.Lid.AutoSize = true;
+            this.Lid.Location = new System.Drawing.Point(19, 16);
+            this.Lid.Name = "Lid";
+            this.Lid.Size = new System.Drawing.Size(21, 13);
+            this.Lid.TabIndex = 11;
+            this.Lid.Text = "ID:";
+            // 
+            // Tcomentario
+            // 
+            this.Tcomentario.Location = new System.Drawing.Point(357, 39);
+            this.Tcomentario.Name = "Tcomentario";
+            this.Tcomentario.Size = new System.Drawing.Size(59, 20);
+            this.Tcomentario.TabIndex = 24;
+            // 
+            // Tid_Dispositivo
+            // 
+            this.Tid_Dispositivo.Location = new System.Drawing.Point(46, 13);
+            this.Tid_Dispositivo.Name = "Tid_Dispositivo";
+            this.Tid_Dispositivo.Size = new System.Drawing.Size(22, 20);
+            this.Tid_Dispositivo.TabIndex = 12;
+            // 
+            // Lcomentario
+            // 
+            this.Lcomentario.AutoSize = true;
+            this.Lcomentario.Location = new System.Drawing.Point(296, 46);
+            this.Lcomentario.Name = "Lcomentario";
+            this.Lcomentario.Size = new System.Drawing.Size(63, 13);
+            this.Lcomentario.TabIndex = 23;
+            this.Lcomentario.Text = "Comentario:";
+            // 
+            // Tid_cliente
+            // 
+            this.Tid_cliente.Location = new System.Drawing.Point(136, 13);
+            this.Tid_cliente.Name = "Tid_cliente";
+            this.Tid_cliente.Size = new System.Drawing.Size(39, 20);
+            this.Tid_cliente.TabIndex = 14;
+            this.Tid_cliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // CBestado
+            // 
+            this.CBestado.FormattingEnabled = true;
+            this.CBestado.Items.AddRange(new object[] {
+            "A reparar",
+            "Reparado"});
+            this.CBestado.Location = new System.Drawing.Point(202, 41);
+            this.CBestado.Name = "CBestado";
+            this.CBestado.Size = new System.Drawing.Size(79, 21);
+            this.CBestado.TabIndex = 22;
+            // 
+            // Ltipo
+            // 
+            this.Ltipo.AutoSize = true;
+            this.Ltipo.Location = new System.Drawing.Point(181, 16);
+            this.Ltipo.Name = "Ltipo";
+            this.Ltipo.Size = new System.Drawing.Size(31, 13);
+            this.Ltipo.TabIndex = 15;
+            this.Ltipo.Text = "Tipo:";
+            // 
+            // Lestado
+            // 
+            this.Lestado.AutoSize = true;
+            this.Lestado.Location = new System.Drawing.Point(153, 46);
+            this.Lestado.Name = "Lestado";
+            this.Lestado.Size = new System.Drawing.Size(43, 13);
+            this.Lestado.TabIndex = 21;
+            this.Lestado.Text = "Estado:";
+            // 
+            // Ttipo
+            // 
+            this.Ttipo.Location = new System.Drawing.Point(217, 13);
+            this.Ttipo.Name = "Ttipo";
+            this.Ttipo.Size = new System.Drawing.Size(39, 20);
+            this.Ttipo.TabIndex = 16;
+            // 
+            // Tfalla
+            // 
+            this.Tfalla.Location = new System.Drawing.Point(57, 39);
+            this.Tfalla.Name = "Tfalla";
+            this.Tfalla.Size = new System.Drawing.Size(76, 20);
+            this.Tfalla.TabIndex = 20;
+            // 
+            // Lmodelo_marca
+            // 
+            this.Lmodelo_marca.AutoSize = true;
+            this.Lmodelo_marca.Location = new System.Drawing.Point(271, 16);
+            this.Lmodelo_marca.Name = "Lmodelo_marca";
+            this.Lmodelo_marca.Size = new System.Drawing.Size(80, 13);
+            this.Lmodelo_marca.TabIndex = 17;
+            this.Lmodelo_marca.Text = "Modelo/Marca:";
+            // 
+            // Lfalla
+            // 
+            this.Lfalla.AutoSize = true;
+            this.Lfalla.Location = new System.Drawing.Point(19, 46);
+            this.Lfalla.Name = "Lfalla";
+            this.Lfalla.Size = new System.Drawing.Size(32, 13);
+            this.Lfalla.TabIndex = 19;
+            this.Lfalla.Text = "Falla:";
+            // 
+            // Tmodelo
+            // 
+            this.Tmodelo.Location = new System.Drawing.Point(357, 13);
+            this.Tmodelo.Name = "Tmodelo";
+            this.Tmodelo.Size = new System.Drawing.Size(39, 20);
+            this.Tmodelo.TabIndex = 18;
+            // 
+            // Bmodificar
+            // 
+            this.Bmodificar.Location = new System.Drawing.Point(526, 418);
+            this.Bmodificar.Name = "Bmodificar";
+            this.Bmodificar.Size = new System.Drawing.Size(75, 23);
+            this.Bmodificar.TabIndex = 10;
+            this.Bmodificar.Text = "Modificar";
+            this.Bmodificar.UseVisualStyleBackColor = true;
+            // 
+            // Belminar
+            // 
+            this.Belminar.Location = new System.Drawing.Point(445, 418);
+            this.Belminar.Name = "Belminar";
+            this.Belminar.Size = new System.Drawing.Size(75, 23);
+            this.Belminar.TabIndex = 9;
+            this.Belminar.Text = "Eliminar";
+            this.Belminar.UseVisualStyleBackColor = true;
+            // 
+            // Bmostar
+            // 
+            this.Bmostar.Location = new System.Drawing.Point(359, 418);
+            this.Bmostar.Name = "Bmostar";
+            this.Bmostar.Size = new System.Drawing.Size(75, 23);
+            this.Bmostar.TabIndex = 9;
+            this.Bmostar.Text = "Mostrar";
+            this.Bmostar.UseVisualStyleBackColor = true;
+            this.Bmostar.Click += new System.EventHandler(this.Bmostar_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(391, 16);
+            this.label4.Location = new System.Drawing.Point(20, 418);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Fecha de ingreso:";
+            this.label4.Size = new System.Drawing.Size(113, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "¿Cuantos deseas ver?";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label5
+            // BMostrarCantPendiente
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "ID:";
+            this.BMostrarCantPendiente.Location = new System.Drawing.Point(129, 441);
+            this.BMostrarCantPendiente.Name = "BMostrarCantPendiente";
+            this.BMostrarCantPendiente.Size = new System.Drawing.Size(75, 23);
+            this.BMostrarCantPendiente.TabIndex = 28;
+            this.BMostrarCantPendiente.Text = "Mostrar";
+            this.BMostrarCantPendiente.UseVisualStyleBackColor = true;
+            this.BMostrarCantPendiente.Click += new System.EventHandler(this.BMostrarCantPendiente_Click);
             // 
-            // textBox2
+            // NUDCantPendientes
             // 
-            this.textBox2.Location = new System.Drawing.Point(46, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(22, 20);
-            this.textBox2.TabIndex = 12;
+            this.NUDCantPendientes.Location = new System.Drawing.Point(33, 444);
+            this.NUDCantPendientes.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.NUDCantPendientes.Name = "NUDCantPendientes";
+            this.NUDCantPendientes.Size = new System.Drawing.Size(76, 20);
+            this.NUDCantPendientes.TabIndex = 29;
+            this.NUDCantPendientes.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
-            // Ttelefono
+            // groupBox2
             // 
-            this.Ttelefono.Location = new System.Drawing.Point(329, 36);
-            this.Ttelefono.Name = "Ttelefono";
-            this.Ttelefono.Size = new System.Drawing.Size(39, 20);
-            this.Ttelefono.TabIndex = 18;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(271, 39);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Telefono:";
-            // 
-            // Tapellido
-            // 
-            this.Tapellido.Location = new System.Drawing.Point(226, 36);
-            this.Tapellido.Name = "Tapellido";
-            this.Tapellido.Size = new System.Drawing.Size(39, 20);
-            this.Tapellido.TabIndex = 16;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(173, 39);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Apellido:";
-            // 
-            // Tnombre
-            // 
-            this.Tnombre.Location = new System.Drawing.Point(121, 36);
-            this.Tnombre.Name = "Tnombre";
-            this.Tnombre.Size = new System.Drawing.Size(39, 20);
-            this.Tnombre.TabIndex = 14;
-            this.Tnombre.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Nombre:";
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.listViewPendientes);
+            this.groupBox2.Controls.Add(this.NUDCantPendientes);
+            this.groupBox2.Controls.Add(this.BMostrarCantPendiente);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(31, 37);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(603, 494);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Reparaciones Pendiente:";
             // 
             // Form1
             // 
@@ -494,9 +543,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1299, 543);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listViewPendientes);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -507,10 +555,13 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.GBDispositivo.ResumeLayout(false);
-            this.GBDispositivo.PerformLayout();
             this.GBfiltros_cliente.ResumeLayout(false);
             this.GBfiltros_cliente.PerformLayout();
+            this.GBDispositivo.ResumeLayout(false);
+            this.GBDispositivo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDCantPendientes)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,7 +572,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispositivoToolStripMenuItem;
         private System.Windows.Forms.ListView listViewPendientes;
@@ -553,16 +603,20 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.GroupBox GBDispositivo;
         private System.Windows.Forms.GroupBox GBfiltros_cliente;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DTPfecha_alta;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Tid_clientefiltro;
         private System.Windows.Forms.TextBox Tnombre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox Tapellido;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox Ttelefono;
+        private System.Windows.Forms.CheckBox CBfecha_alta;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BMostrarCantPendiente;
+        private System.Windows.Forms.NumericUpDown NUDCantPendientes;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

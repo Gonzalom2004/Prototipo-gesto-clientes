@@ -8,7 +8,12 @@ namespace Gestor_De_Clientes
 {
     public class ClienteFiltro
     {
-
+        public int ID { get; set; }
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Telefono { get; set; }
+        public DateTime Fecha_Alta { get; set; }
+
+        
     }
 }

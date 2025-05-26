@@ -21,6 +21,7 @@ namespace Gestor_De_Clientes
         public Form1()
         {
             InitializeComponent();
+
             
         }
        
@@ -58,6 +59,9 @@ namespace Gestor_De_Clientes
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            GBDispositivo.Visible = true;
+            GBfiltros_cliente.Visible = false;
+            DTPfecha_alta.Enabled = false; 
             listViewPendientes.Items.Clear();
             listViewPendientes.Columns.Clear();
             listViewPendientes.View = View.Details;
@@ -120,6 +124,7 @@ namespace Gestor_De_Clientes
         {
             if(RBdispositivo.Checked)
             {
+                GBfiltros_cliente.Visible = false; 
                 GBDispositivo.Visible = true;
 
                 //Lid_cliente.Visible = true;
@@ -136,23 +141,8 @@ namespace Gestor_De_Clientes
 
                 
             }
-            else
-            {
 
-                GBDispositivo.Visible = false;
-                //Lid_cliente.Visible = false;
-                //Tid_cliente.Visible = false ;
-                //Ltipo.Visible = false ;
-                //Ttipo.Visible = false ;
-                //Lmodelo_marca.Visible = true;
-                //Tmodelo.Visible = true;
-                //Lfalla.Visible = true;
-                //Tfalla.Visible = true;
-                //Lestado.Visible = true;
-                //CBestado.Visible = true;
-                //Lcomentario.Visible = true;
-
-            }
+            
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -164,12 +154,10 @@ namespace Gestor_De_Clientes
         {
             if (RBcliente.Checked)
             {
+                GBDispositivo.Visible = false;
                 GBfiltros_cliente.Visible = true;
             }
-            else
-            {
-                GBfiltros_cliente.Visible = false;
-            }
+            
         }
 
         private void listViewPendientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,57 +167,101 @@ namespace Gestor_De_Clientes
 
         private void Bmostar_Click(object sender, EventArgs e)
         {
-
             //fijarse si es mejor meter los filtros en variables para luego usarlos en ortas partes
             //como pasa aca abajo uso "A reparar" dos veces lo cual puede dar error. Usar variables 
-            //Para que no haya posibles errores al reescribir el filtro 
+            //Para que no haya posibles errores al reescribir el filtro
             LVbuscador.Items.Clear();
-            if (CBestado.Text == "A reparar")
+            LVbuscador.Columns.Clear();
+            if (RBdispositivo.Checked) //Primera situación es que el usuario quiera filtrar por Dispositivos
             {
-                DispositivoFiltro filtro = new DispositivoFiltro { Estado = "A reparar" };
-
-                List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
-
-
-                foreach (Dispositivo D in pendientes)
+                if (CBestado.Text == "A reparar")
                 {
-                    LVbuscador.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
-                                                        //o al darle doble click diga mas datos sobre el dispositivo 
-                                                        //Agregar funcionalidad de cambiar estado a reparado 
+                    DispositivoFiltro filtro = new DispositivoFiltro { Estado = "A reparar" };
+
+                    List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
+
+
+                    foreach (Dispositivo D in pendientes)
+                    {
+                        LVbuscador.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
+                                                            //o al darle doble click diga mas datos sobre el dispositivo 
+                                                            //Agregar funcionalidad de cambiar estado a reparado 
+                    }
+                }
+                else if (CBestado.Text == "Reparado")
+                {
+                    DispositivoFiltro filtro = new DispositivoFiltro { Estado = "Reparado" };
+
+
+                    List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
+
+
+                    foreach (Dispositivo D in pendientes)
+                    {
+                        LVbuscador.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
+                                                            //o al darle doble click diga mas datos sobre el dispositivo 
+                                                            //Agregar funcionalidad de cambiar estado a reparado 
+                    }
+                }
+                else if (Tnombre.Text != "")
+                {
+                    ClienteFiltro filtro = new ClienteFiltro { Nombre = Tnombre.Text };
+                    List<Cliente> clientes = ClienteDB.ObtenerClientes(filtro);
+                    foreach (Cliente c in clientes)
+                    {
+                        LVbuscador.Items.Add(c.ToString());
+                    }
+                }
+                else
+                {
+                    listaTodoDispositivo();// Cree este metodo mas arriba porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
+                                //recordar que es mostrar/listar todo sin filtar ni nada 
                 }
             }
-            else if (CBestado.Text == "Reparado")
+            else if (RBcliente.Checked) //Segunda situación es que el usuario quiera filtrar por Cliente
             {
-                DispositivoFiltro filtro = new DispositivoFiltro { Estado = "Reparado" };
-
-
-                List<Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
-
-
-                foreach (Dispositivo D in pendientes)
+                ClienteFiltro filtros_cliente = new ClienteFiltro();
+                bool sin_filtro = true;
+                if (Tid_clientefiltro.Text != "")
                 {
-                    LVbuscador.Items.Add(D.ToString()); //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
-                                                        //o al darle doble click diga mas datos sobre el dispositivo 
-                                                        //Agregar funcionalidad de cambiar estado a reparado 
+                    filtros_cliente.ID = Convert.ToInt32(Tid_clientefiltro.Text);
+                    sin_filtro = false;
+                }
+                if (Tnombre.Text != "")
+                {
+                    filtros_cliente.Nombre = Tnombre.Text;
+                    sin_filtro = false;
+                }
+                if (Tapellido.Text != "")
+                {
+                    filtros_cliente.Apellido = Tapellido.Text;
+                    sin_filtro = false;
+                }
+                if (Ttelefono.Text != "")
+                {
+                    filtros_cliente.Telefono = Ttelefono.Text;
+                    sin_filtro = false;
+                }
+                if (CBfecha_alta.Checked)
+                {
+                    filtros_cliente.Fecha_Alta = DTPfecha_alta.Value;
+                    sin_filtro = false;
+                }
+                if (sin_filtro)
+                {
+                    ListarTodoCliente();
+                }
+                else
+                {
+                    List<Cliente> listaClientes = ClienteDB.ObtenerClientes(filtros_cliente);
                 }
             }
-            else if (Tnombre.Text != "")
-            {
-                ClienteFiltro filtro = new ClienteFiltro { Nombre = Tnombre.Text };
-                List<Cliente> clientes = ClienteDB.ObtenerClientes(filtro);
-                foreach (Cliente c in clientes)
-                {
-                    LVbuscador.Items.Add(c.ToString());
-                }
-            }
-            else
-            {
-                listaTodo();// Cree este metodo mas arriba porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
-                //recordar que es mostrar/listar todo sin filtar ni nada 
-            }
+                
+              
+            
         }
 
-        private void listaTodo() // Cree este metodo porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
+        private void listaTodoDispositivo() // Cree este metodo porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
                                  //recordar que es mostrar/listar todo sin filtar ni nada 
         {
 
@@ -276,6 +308,133 @@ namespace Gestor_De_Clientes
             {
                 column.Width = -2;
             }
+        }
+
+        private void ListarTodoCliente()
+        {
+            LVbuscador.Items.Clear();
+            LVbuscador.Columns.Clear();
+            LVbuscador.View = View.Details;
+            LVbuscador.GridLines = true;
+            LVbuscador.FullRowSelect = true;
+            LVbuscador.Columns.Add("ID", 50);
+            LVbuscador.Columns.Add("Nombre", 150);
+            LVbuscador.Columns.Add("Apellido", 100);
+            LVbuscador.Columns.Add("Telefono", 100);
+            LVbuscador.Columns.Add("Fecha Alta", 100);
+
+
+            List<Cliente> clientes = ClienteDB.ObtenerClientes() ;
+
+            foreach (Cliente cliente in clientes)
+            {
+                ListViewItem item = new ListViewItem(cliente.Id.ToString());
+
+
+                item.SubItems.Add(cliente.Nombre ??  "Sin Nombre");
+                item.SubItems.Add(cliente.Apellido ?? "N/D");
+                item.SubItems.Add(cliente.Telefono ?? "N/D");
+                item.SubItems.Add(cliente.FechaAlta ?? "Sin fecha");
+               
+
+                // Guardar el objeto completo para referencia, sirve para editar y eliminar desp
+                item.Tag = cliente;
+
+                LVbuscador.Items.Add(item);
+            }
+
+
+            foreach (ColumnHeader column in LVbuscador.Columns)// Autoajustar columnas al contenido
+            {
+                column.Width = -2;
+            }
+        }
+        
+
+
+
+        private void CBfecha_alta_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBfecha_alta.Checked)
+            {
+                DTPfecha_alta.Enabled = true;
+            }
+            else if (!CBfecha_alta.Checked)
+            {
+                DTPfecha_alta.Enabled = false;
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BMostrarCantPendiente_Click(object sender, EventArgs e)
+        {
+            
+            //Este boton es para poner la cantidad de pendientes que quiero ver ya que el dia de mañana
+            //Cuando haya mucha cantidad si los traigo todos van a ser muchos los dispositivos que voy 
+            //a tener que traer y se va a relentizar la data 
+
+            //Aca solo lista los dispositivos sin los datos de cliente la idea es hacer un boton con detalles 
+            //o al darle doble click diga mas datos sobre el dispositivo 
+            //Agregar funcionalidad de cambiar estado a reparado
+
+
+            //Agregar un if que controle la cantidad de pendientes que existen
+            listViewPendientes.Items.Clear();
+            DispositivoFiltro filtro = new DispositivoFiltro
+            {
+                Estado = "A reparar",
+                Limite = Convert.ToInt32(NUDCantPendientes.Value)
+            };
+
+
+
+            List <Dispositivo> pendientes = DispositivoBD.ObtenerDispositivos(filtro);
+
+
+            foreach (Dispositivo dispositivo in pendientes)
+            {
+                 
+                
+                    ListViewItem item = new ListViewItem(dispositivo.ID.ToString());
+
+                    item.SubItems.Add(dispositivo.Cliente != null ? dispositivo.Cliente.Nombre : "Sin cliente");
+                    item.SubItems.Add(dispositivo.Tipo ?? "N/D");
+                    item.SubItems.Add(dispositivo.Marca ?? "N/D");
+                    item.SubItems.Add(dispositivo.Falla ?? "Sin descripción");
+                    item.SubItems.Add(dispositivo.Estado ?? "N/D");
+                    item.SubItems.Add(dispositivo.FechaIngreso ?? "N/D");
+
+                    // Almacenar objeto completo para referencia, esto sirve para lo de editar que lo voy a hacer proximamente
+                    item.Tag = dispositivo;
+
+                    listViewPendientes.Items.Add(item);
+                
+
+                // Autoajustar columnas al contenido
+                foreach (ColumnHeader columna in listViewPendientes.Columns)
+                {
+                    columna.Width = -2; // Autoajustar al contenido
+                }
+            }
+
+            if(Convert.ToInt16(NUDCantPendientes.Value) > pendientes.Count) 
+            {
+                //Este condicional es para mostrarle al usuario que la cantidad que 
+                //seleccionó es mucho mayor a la cantidad de pendientes que existen
+                MessageBox.Show($"Solo hay {pendientes.Count} en estado pendiente");
+                NUDCantPendientes.Value = Convert.ToDecimal(pendientes.Count);
+                NUDCantPendientes.Focus(); 
+            }
+            
+        }
+
+        private void listViewPendientes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("HOLA");
         }
     }
 }

@@ -106,6 +106,12 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteDB.cs" />
     <Compile Include="ClienteFiltro.cs" />
+    <Compile Include="Detalles_Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalles_Modificar.Designer.cs">
+      <DependentUpon>Detalles_Modificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dispositivo.cs" />
     <Compile Include="DispositivoBD.cs" />
     <Compile Include="DispositivoFiltro.cs" />

@@ -17,6 +17,7 @@ namespace Gestor_De_Clientes
         public string Estado { get; set; } //Esto para filtrar por estado "A Reparar","Reparado"
         public string Tipo { get; set; } //Para filtrar por tipo asi sea celular , notebook atc...
 
+        public int Limite { get; set; }
         //Aca Tendria que seguir agregando mas propiedades para poder filtar por otro tipo de cosas
         //Pero por ahora voy a usar la propiedad de Estado para poder listar lo que esten pendientes 
         //En la pagina principal. 

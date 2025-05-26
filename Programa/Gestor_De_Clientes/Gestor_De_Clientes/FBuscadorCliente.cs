@@ -15,7 +15,6 @@ namespace Gestor_De_Clientes
         //propiedad para exponer el cliente seleccionar
         public Cliente clienteSeleccionado { get; private set; }
         List<Cliente> Lista = new List<Cliente>();
-
         
         public FBuscadorCliente()
         {

@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Gestor_De_Clientes
 {
-    public static  class ClienteDB
+    public static class ClienteDB
     {
        
         private static string CadenaConexion()//Tuve que crear un metodo porque si no el codigo que esta aca dentro no funciona 
@@ -37,7 +37,7 @@ namespace Gestor_De_Clientes
         #region "Metodos" 
         //algunos tienen que ser metodos static para no tener que instanciar la clase
         public static List<Cliente> ObtenerClientes(ClienteFiltro filtros = null) //Este metodo lo que hace es traer los datos de la base para poder instanciar los clientes otra vez y meterlos en la lista 
-        {
+        {//Mandar por parametro la lista condicione de una con los parametro/filtros del form 
             List<Cliente> lista = new List<Cliente>();
 
 
@@ -58,6 +58,7 @@ namespace Gestor_De_Clientes
                         condiciones.Add("Nombre LIKE @Nombre");
                         parametros.Add(new SQLiteParameter("@Nombre", $"{filtros.Nombre}%"));
                     }
+
                    
 
                 }
