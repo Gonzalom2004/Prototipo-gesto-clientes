@@ -147,6 +147,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Detalles_Modificar.resx">
+      <DependentUpon>Detalles_Modificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FAgregarDispositivo.resx">
       <DependentUpon>FAgregarDispositivo.cs</DependentUpon>
     </EmbeddedResource>

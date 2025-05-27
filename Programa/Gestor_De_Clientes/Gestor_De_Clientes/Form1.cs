@@ -434,7 +434,15 @@ namespace Gestor_De_Clientes
 
         private void listViewPendientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("HOLA");
+            if (listViewPendientes.SelectedItems.Count > 0)
+            {
+                //Obtener el id del dispositivo seleccionado sabiendo 
+                //que esta en la primer columna 
+
+                int idDispositivo = Convert.ToInt32(listViewPendientes.SelectedItems[0].SubItems[0].Text);
+                Detalles_Modificar formDetalles = new Detalles_Modificar(idDispositivo);
+                formDetalles.ShowDialog();
+            }
         }
     }
 }

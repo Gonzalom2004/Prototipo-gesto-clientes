@@ -47,6 +47,11 @@ namespace Gestor_De_Clientes
                 //Construir condiciones dinámicamente si hay filtros:
                 if (filtros != null)
                 {
+                    if(filtros.Id > 0)
+                    {
+                        condiciones.Add("ID = @ID");
+                        parametros.Add(new SQLiteParameter("@ID", filtros.Id));
+                    }
                     if (!string.IsNullOrEmpty(filtros.Estado)) 
                     {
                         condiciones.Add("Estado = @Estado");
@@ -57,6 +62,7 @@ namespace Gestor_De_Clientes
                         condiciones.Add("Tipo = @Tipo");
                         parametros.Add(new SQLiteParameter("@Tipo", filtros.Tipo)); //Metemos la propiedad Tipo de la clase DispositivoFiltro
                     }
+
                     
                     
                     //Aca podemos seguir metiendo mas condiciones para el filtrado es bastante escalable esta forma de filtrar 
@@ -109,6 +115,7 @@ namespace Gestor_De_Clientes
             }
                
             return lista;
+            
         }
 
         public static bool EliminarDispositivo(int id) 
