@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.Tid = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,8 +60,10 @@
             this.Tnombre = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.Tid_cliente = new System.Windows.Forms.TextBox();
+            this.EPvalidación = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EPvalidación)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,6 +129,7 @@
             this.Bconfirmar_dispositivo.TabIndex = 15;
             this.Bconfirmar_dispositivo.Text = "Confirmar";
             this.Bconfirmar_dispositivo.UseVisualStyleBackColor = true;
+            this.Bconfirmar_dispositivo.Click += new System.EventHandler(this.Bconfirmar_dispositivo_Click);
             // 
             // CBmodificar_dispositivo
             // 
@@ -370,6 +374,10 @@
             this.Tid_cliente.Size = new System.Drawing.Size(32, 20);
             this.Tid_cliente.TabIndex = 15;
             // 
+            // EPvalidación
+            // 
+            this.EPvalidación.ContainerControl = this;
+            // 
             // Detalles_Modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,11 +388,13 @@
             this.Controls.Add(this.label2);
             this.Name = "Detalles_Modificar";
             this.Text = "Detalles";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Detalles_Modificar_FormClosed);
             this.Load += new System.EventHandler(this.Detalles_Modificar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EPvalidación)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,5 +433,6 @@
         private System.Windows.Forms.CheckBox CBmodificar_dispositivo;
         private System.Windows.Forms.Button Bconfirmar_cliente;
         private System.Windows.Forms.CheckBox CBmodificar_cliente;
+        private System.Windows.Forms.ErrorProvider EPvalidación;
     }
 }

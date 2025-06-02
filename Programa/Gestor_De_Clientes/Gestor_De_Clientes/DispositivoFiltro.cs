@@ -15,8 +15,16 @@ namespace Gestor_De_Clientes
 
         //Cada propiedad de aca abajo representa una campo por el que se puede filtrar 
         public int Id { get; set; }
-        public string Estado { get; set; } //Esto para filtrar por estado "A Reparar","Reparado"
+
         public string Tipo { get; set; } //Para filtrar por tipo asi sea celular , notebook atc...
+        
+        public string Marca { get; set; }
+
+        public string Falla { get; set;}
+
+        public string Estado { get; set; } //Esto para filtrar por estado "A Reparar","Reparado"
+       
+        public string Comentario { get; set;}
 
         public int Limite { get; set; }
         //Aca Tendria que seguir agregando mas propiedades para poder filtar por otro tipo de cosas

@@ -261,6 +261,7 @@ namespace Gestor_De_Clientes
             
         }
 
+
         private void listaTodoDispositivo() // Cree este metodo porque se usa en el boton mostrar y eliminar para no repetir codigo llamamos a este igual
                                  //recordar que es mostrar/listar todo sin filtar ni nada 
         {
@@ -432,6 +433,9 @@ namespace Gestor_De_Clientes
             
         }
 
+
+        
+
         private void listViewPendientes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listViewPendientes.SelectedItems.Count > 0)
@@ -441,8 +445,17 @@ namespace Gestor_De_Clientes
 
                 int idDispositivo = Convert.ToInt32(listViewPendientes.SelectedItems[0].SubItems[0].Text);
                 Detalles_Modificar formDetalles = new Detalles_Modificar(idDispositivo);
+
+                formDetalles.DatosActualizados += FormDetalles_DatosActualizados;
                 formDetalles.ShowDialog();
             }
+        }
+
+        private void FormDetalles_DatosActualizados(object sender, EventArgs e)
+        {
+            //Aca reutilizo el evento del boton pendiente ya que tiene todo el codigo 
+            //para listar todos los que esta pendientes 
+            BMostrarCantPendiente_Click(null, EventArgs.Empty);
         }
     }
 }

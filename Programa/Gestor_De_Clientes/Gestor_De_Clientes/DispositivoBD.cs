@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -157,7 +159,90 @@ namespace Gestor_De_Clientes
             }
         }
 
+        public static bool ModificarDispositivo(int id,DispositivoFiltro cambios)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(CadenaConexion()))
+            {
+                conn.Open();//Se abre la conexión fisica con la base de datos
 
+                string query = "UPDATE Dispositivo SET "; //Esta es la consulta base que va a variar dependiendo cuantos atributos/columnas modificamos 
+
+               
+                //Ejemplo de consulta
+                //UPDATE Dispositivo
+                //SET
+                //  Estado = 'Reparado',
+                //  Comentario = 'El cliente fue notificado'
+                //WHERE ID = 3;
+
+                var condiciones = new List<string>();
+                var parametros = new List<SQLiteParameter>();
+
+                if (cambios != null)
+                {
+                    if (!string.IsNullOrEmpty( cambios.Tipo ))
+                    {
+                        condiciones.Add("Tipo = @Tipo");
+                        parametros.Add(new SQLiteParameter("@Tipo", cambios.Tipo));
+                    }
+                    if (!string.IsNullOrEmpty(cambios.Marca))
+                    {
+                        condiciones.Add("Marca = @Marca");
+                        parametros.Add(new SQLiteParameter("@Marca", cambios.Marca));
+                    }
+                    if (!string.IsNullOrEmpty(cambios.Falla))
+                    {
+                        condiciones.Add("Falla = @Falla");
+                        parametros.Add(new SQLiteParameter("@Falla", cambios.Falla));
+                    }
+                    if(!string.IsNullOrEmpty(cambios.Estado))
+                    {
+                        condiciones.Add("Estado = @Estado");
+                        parametros.Add(new SQLiteParameter("@Estado", cambios.Estado));
+                    }
+                    if (!string.IsNullOrEmpty(cambios.Comentario))
+                    {
+                        condiciones.Add("Comentario = @Comentario");
+                        parametros.Add(new SQLiteParameter("@Comentario", cambios.Comentario));
+                    }
+                }
+
+                if (condiciones.Count > 0 )//Si es mayor a 0 quiere decir que hay cambios para hacer 
+                {
+                    query += string.Join(" , ", condiciones);//String.Join("Separador",listaDeStrings) dejando una cadena WHERE Estado = @Estado AND Tipo = @Tipo
+                    query += $" WHERE ID = {id}";
+                }
+
+
+
+
+
+                //Aca ejecutamos la consulta:
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn)) //necesitamos el SQLiteCommand porque a diferencia de SQLiteConnection que se encarga de la conexion fisica, 
+                {                                                          //SQLiteCommand se encarga de ejecutar comando SQL o sea consultas 
+                                                                           //Se encargar de devolver resultados a través de ExecuteReader(), ExecuteScalar() o ExecuteNonQuery()
+                    foreach (var param in parametros)
+                    {
+                        cmd.Parameters.Add(param);//Esto se encargar de reemplazar cada @atributo con el valor como por ejemplo a @Estado lo remplaza con el valor de parametro es decir 
+                                                  //por ejemplo "A reparar"
+                    }
+
+
+                    int filasAfectadas = cmd.ExecuteNonQuery(); // Esto nos dice la cantidad de registros/filas que fueron afectadas
+                    return filasAfectadas > 0; //si es mayor a cero significa que esta bien, que se elimino correctamente 
+                    
+                }
+
+            }
+
+            
+           
+
+
+
+
+            
+        }
        
         #endregion
     }

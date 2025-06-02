@@ -15,12 +15,18 @@ namespace Gestor_De_Clientes
     {
 
         private int _idDispositivo;
+        private Dispositivo dispositivo;
+
+        //Evento publico para poder actualizar el formulario principal 
+        //Luego de realizar los cambios 
+        public event EventHandler DatosActualizados; 
 
         //Constructor
         public Detalles_Modificar(int idDispositivo)
         {
             InitializeComponent();
-            _idDispositivo = idDispositivo; 
+            _idDispositivo = idDispositivo;
+            this.FormClosed += Detalles_Modificar_FormClosed;
         }
         public Detalles_Modificar()
         {
@@ -53,7 +59,7 @@ namespace Gestor_De_Clientes
             //muchos filtros solo es el id 
             DispositivoFiltro filtro = new DispositivoFiltro { Id = _idDispositivo };
             List<Dispositivo> lista = DispositivoBD.ObtenerDispositivos(filtro);
-            Dispositivo dispositivo = lista[0];
+            dispositivo = lista[0];
 
             Tid.Text = Convert.ToString( dispositivo.ID);
             Ttipo.Text = dispositivo.Tipo;
@@ -154,6 +160,69 @@ namespace Gestor_De_Clientes
             
         }
 
+        private void Bconfirmar_dispositivo_Click(object sender, EventArgs e)
+        {
+            if (DispoDatosCompletos())
+            {
+                DispositivoFiltro cambios = new DispositivoFiltro();
 
+                if (dispositivo.Tipo != Ttipo.Text)
+                {
+                    cambios.Tipo = Ttipo.Text;
+                }
+                if (dispositivo.Marca != TmarcaModelo.Text)
+                {
+                    cambios.Marca = TmarcaModelo.Text;
+                }
+                if (dispositivo.Falla != Tfalla.Text)
+                {
+                    cambios.Falla = Tfalla.Text;
+                }
+                if(dispositivo.Estado != CBestado.Text)
+                {
+                    cambios.Estado = CBestado.Text;
+                }
+                if (dispositivo.Comentario != Tcomentario.Text)
+                {
+                    cambios.Comentario = Tcomentario.Text;
+                }
+
+                if (DispositivoBD.ModificarDispositivo(_idDispositivo, cambios))
+                {
+                    MessageBox.Show("Se modifico correctamente");
+                }
+            }
+        }
+
+
+        private bool DispoDatosCompletos()
+        {
+            if (Ttipo.Text == "")
+            {
+                EPvalidación.SetError(Ttipo, "Incompleto");
+            }
+            else if (TmarcaModelo.Text == "")
+            {
+                EPvalidación.SetError(TmarcaModelo, "incompleto");
+            }
+            else if (Tfalla.Text == "")
+            {
+                EPvalidación.SetError(Tfalla, "incompleto");
+            }
+            else
+            {
+                return true;
+            }
+            return false; 
+            
+            
+                
+                
+        }
+
+        private void Detalles_Modificar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DatosActualizados?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
